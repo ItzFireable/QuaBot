@@ -98,7 +98,7 @@ module.exports = class topscores extends Command {
 
                         let stats1 = {
                             "** 1. **": `${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`,
-                            "** Score▸ **": `**${body1.scores[0].grade + "rank"}** ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
+                            "** Score▸ **": `${body1.scores[0].grade + "rank"} ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
                             "** Score set ▸ **": `${since1}`,
                         };
@@ -108,7 +108,7 @@ module.exports = class topscores extends Command {
 
                         let stats2 = {
                             "** 2. **": `${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name})`,
-                            "** Score ▸ **": `**${body1.scores[1].grade + "rank"}** ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `${body1.scores[1].grade + "rank"} ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[1].total_score} - x${body1.scores[1].max_combo} - [${body1.scores[1].count_marv}/${body1.scores[1].count_perf}/${body1.scores[1].count_great}/${body1.scores[1].count_good}/${body1.scores[1].count_okay}/${body1.scores[1].count_miss}]`,
                             "** Score set ▸ **": `${since2}`,
                         };
@@ -118,7 +118,7 @@ module.exports = class topscores extends Command {
 
                         let stats3 = {
                             "** 3. **": `${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name})`,
-                            "** Score ▸ **": `**grade${body1.scores[2].grade + "rank"}** ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `${body1.scores[2].grade + "rank"} ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[2].total_score} - x${body1.scores[2].max_combo} - [${body1.scores[2].count_marv}/${body1.scores[2].count_perf}/${body1.scores[2].count_great}/${body1.scores[2].count_good}/${body1.scores[2].count_okay}/${body1.scores[2].count_miss}]`,
                             "** Score set ▸ **": `${since3}`,
                         };
@@ -128,7 +128,7 @@ module.exports = class topscores extends Command {
 
                         let stats4 = {
                             "** 4. **": `${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name})`,
-                            "** Score ▸ **": `**${body1.scores[3].grade + "rank"}** ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `${body1.scores[3].grade + "rank"} ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[3].total_score} - x${body1.scores[3].max_combo} - [${body1.scores[3].count_marv}/${body1.scores[3].count_perf}/${body1.scores[3].count_great}/${body1.scores[3].count_good}/${body1.scores[3].count_okay}/${body1.scores[3].count_miss}]`,
                             "** Score set ▸ **": `${since4}`,
                         };
@@ -138,7 +138,7 @@ module.exports = class topscores extends Command {
 
                         let stats5 = {
                             "** 5. **": `${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name})`,
-                            "** Score ▸ **": `**${body1.scores[4].grade + "rank"}** ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `${body1.scores[4].grade + "rank"} ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[4].total_score} - x${body1.scores[4].max_combo} - [${body1.scores[4].count_marv}/${body1.scores[4].count_perf}/${body1.scores[4].count_great}/${body1.scores[4].count_good}/${body1.scores[4].count_okay}/${body1.scores[4].count_miss}]`,
                             "** Score set ▸ **": `${since5}`,
                         };
@@ -146,18 +146,58 @@ module.exports = class topscores extends Command {
                         let statisticsString1 = "";
                         for (const key in stats1)
                             statisticsString1 += `${key} ${stats1[key].toLocaleString()}\n`;
+                            statisticsString1 = statisticsString1.replace("Xrank",Xrank);
+                            statisticsString1 = statisticsString1.replace("SSrank",SSrank);
+                            statisticsString1 = statisticsString1.replace("Srank",Srank);
+                            statisticsString1 = statisticsString1.replace("Arank",Arank);
+                            statisticsString1 = statisticsString1.replace("Brank",Brank);
+                            statisticsString1 = statisticsString1.replace("Crank",Crank);
+                            statisticsString1 = statisticsString1.replace("Drank",Drank);
+                            statisticsString1 = statisticsString1.replace("Frank",Frank);
                         let statisticsString2 = "";
                         for (const key in stats2)
                             statisticsString2 += `${key} ${stats2[key].toLocaleString()}\n`;
+                            statisticsString2 = statisticsString2.replace("Xrank",Xrank);
+                            statisticsString2 = statisticsString2.replace("SSrank",SSrank);
+                            statisticsString2 = statisticsString2.replace("Srank",Srank);
+                            statisticsString2 = statisticsString2.replace("Arank",Arank);
+                            statisticsString2 = statisticsString2.replace("Brank",Brank);
+                            statisticsString2 = statisticsString2.replace("Crank",Crank);
+                            statisticsString2 = statisticsString2.replace("Drank",Drank);
+                            statisticsString2 = statisticsString2.replace("Frank",Frank);
                         let statisticsString3 = "";
                         for (const key in stats3)
                             statisticsString3 += `${key} ${stats3[key].toLocaleString()}\n`;
+                            statisticsString3 = statisticsString3.replace("Xrank",Xrank);
+                            statisticsString3 = statisticsString3.replace("SSrank",SSrank);
+                            statisticsString3 = statisticsString3.replace("Srank",Srank);
+                            statisticsString3 = statisticsString3.replace("Arank",Arank);
+                            statisticsString3 = statisticsString3.replace("Brank",Brank);
+                            statisticsString3 = statisticsString3.replace("Crank",Crank);
+                            statisticsString3 = statisticsString3.replace("Drank",Drank);
+                            statisticsString3 = statisticsString3.replace("Frank",Frank);
                         let statisticsString4 = "";
                         for (const key in stats4)
                             statisticsString4 += `${key} ${stats4[key].toLocaleString()}\n`;
+                            statisticsString4 = statisticsString4.replace("Xrank",Xrank);
+                            statisticsString4 = statisticsString4.replace("SSrank",SSrank);
+                            statisticsString4 = statisticsString4.replace("Srank",Srank);
+                            statisticsString4 = statisticsString4.replace("Arank",Arank);
+                            statisticsString4 = statisticsString4.replace("Brank",Brank);
+                            statisticsString4 = statisticsString4.replace("Crank",Crank);
+                            statisticsString4 = statisticsString4.replace("Drank",Drank);
+                            statisticsString4 = statisticsString4.replace("Frank",Frank);
                         let statisticsString5 = "";
                         for (const key in stats5)
                             statisticsString5 += `${key} ${stats5[key].toLocaleString()}\n`;
+                            statisticsString5 = statisticsString5.replace("Xrank",Xrank);
+                            statisticsString5 = statisticsString5.replace("SSrank",SSrank);
+                            statisticsString5 = statisticsString5.replace("Srank",Srank);
+                            statisticsString5 = statisticsString5.replace("Arank",Arank);
+                            statisticsString5 = statisticsString5.replace("Brank",Brank);
+                            statisticsString5 = statisticsString5.replace("Crank",Crank);
+                            statisticsString5 = statisticsString5.replace("Drank",Drank);
+                            statisticsString5 = statisticsString5.replace("Frank",Frank);
         
                         embed.addField("Play #1", statisticsString1.trim());
                         embed.addField("Play #2", statisticsString2.trim());
