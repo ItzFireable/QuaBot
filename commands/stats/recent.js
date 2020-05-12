@@ -47,25 +47,24 @@ module.exports = class recent extends Command {
 
                     if (!error1 && body1.status == 200) {
 
-                        console.log(body1.scores[0]);
 
-                        //let stats = {
-                        //    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
-                        //    "Ranked Score": keymodeObject.stats.ranked_score,
-                        //    "Total Score": keymodeObject.stats.total_score,
-                        //    "Accuracy": Math.round(keymodeObject.stats.overall_accuracy * 100) / 100,
-                        //    "Play Count": keymodeObject.stats.play_count,
-                        //    "Max Combo": keymodeObject.stats.max_combo
-                        //};
+                        let stats = {
+                            "Rating": Math.round(body.scores[0].performance_rating * 100) / 100,
+                            "Score": body.scores[0].total_score,
+                            "Grade": body.scores[0].grade,
+                            "Accuracy": Math.round(body.scores[0].accuracy * 100) / 100,
+                            "Ratio": body.scores[0].ratio + ":1",
+                            "Max Combo": body.scores[0].max_combo
+                        };
         
-                        //let statisticsString = "";
-                        //for (const key in stats)
-                        //    statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
+                        let statisticsString = "";
+                        for (const key in stats)
+                            statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
         
-                        //embed.addField("Statistics", statisticsString.trim());
-                        //console.log(statisticsString.trim())
+                        embed.addField("Statistics", statisticsString.trim());
+                        console.log(statisticsString.trim())
 
-                        embed.setDescription(" - ")
+                        embed.setDescription(body1.scores[0].map.artist + " - " + body1.scores[0].map.title)
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
