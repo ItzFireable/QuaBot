@@ -9,13 +9,6 @@ const client = new CommandoClient({
     unknownCommandResponse: false,
 });
 
-const activities_list = [
-    "Quaver",
-    "Quaver",
-    "Quaver",
-    "with JavaScript"
-];
-
 client.registry
     //.registerDefaults()
     .registerDefaultTypes()
@@ -28,12 +21,9 @@ client.registry
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    client.user.setPresence({
-        game: {
-            name: 'Quaver',
-            type: "STREAMING",
-            url: "https://quavergame.com"
-        }
+    client.user.setActivity("Quaver", {
+        type: "STREAMING",
+        url: "https://www.quavergame.com"
     });
 });
 
