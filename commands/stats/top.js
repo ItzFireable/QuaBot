@@ -208,7 +208,7 @@ module.exports = class topscores extends Command {
 
                         embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
                         embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
-                        embed.setDescription(`${emojiFlags.countryCode(body.user.info.country)} Ranking: #` + keymodeObject.countryRank);
+                        embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Ranking: #` + keymodeObject.countryRank);
                         embed.setTimestamp()
                         //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
