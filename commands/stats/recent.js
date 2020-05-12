@@ -62,23 +62,23 @@ module.exports = class recent extends Command {
                 embed.setTimestamp();
                 embed.setFooter("https://quavergame.com");
 
-                request.get(url, { json: true }, (error, response, body) => {
-                    if (!error && body.status == 200) {
+                request.get(url, { json: true }, (error, response, body1) => {
+                    if (!error && body1.status == 200) {
 
                         let stats = {
-                            "Rating": Math.round(body.scores[0].performance_rating * 100) / 100,
-                            "Score": body.scores[0].total_score,
-                            "Grade": body.scores[0].grade,
-                            "Accuracy": Math.round(body.scores[0].accuracy * 100) / 100,
-                            "Ratio": Math.round(body.scores[0].ratio * 10) / 10 + ":1",
-                            "Combo": body.scores[0].max_combo
+                            "Rating": Math.round(body1.scores[0].performance_rating * 100) / 100,
+                            "Score": body1.scores[0].total_score,
+                            "Grade": body1.scores[0].grade,
+                            "Accuracy": Math.round(body1.scores[0].accuracy * 100) / 100,
+                            "Ratio": Math.round(body1.scores[0].ratio * 10) / 10 + ":1",
+                            "Combo": body1.scores[0].max_combo
                         };
 
-                        embed.setTitle(body.scores[0].artist + " - " + body.scores[0].title);
+                        embed.setTitle(body1.scores[0].artist + " - " + body1.scores[0].title);
                         embed.addField("Statistics", statisticsString.trim());
                         message.channel.send(embed)
 
-                    } else if (!error && body.status == 404) {
+                    } else if (!error && body1.status == 404) {
 
                         let embed = new RichEmbed()
                         embed.setColor(0x44e8ff)
