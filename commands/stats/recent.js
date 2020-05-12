@@ -62,7 +62,6 @@ module.exports = class recent extends Command {
                             statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
         
                         embed.addField("Statistics", statisticsString.trim());
-                        console.log(statisticsString.trim())
 
                         let bannerURL = `https://quaver.blob.core.windows.net/banners/${body1.scores[0].map.mapset_id}_banner.jpg`;
                         embed.setThumbnail(bannerURL)
