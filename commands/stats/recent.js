@@ -62,7 +62,7 @@ module.exports = class recent extends Command {
                             Jimp.read(bannerURL, (err, image) => {
                                 if (err) throw err;
                                 image
-                                    .crop(150,9,600,250)
+                                    .crop(0,0,450,250)
                                     .write(`../../cache/banners/${mapsetID}.jpg`);
                             });
 
