@@ -12,6 +12,7 @@
     "node": "14.2.0"
   },
   "dependencies": {
+    "country-flag-emoji": "^1.0.3",
     "discord.js": "11.5.1",
     "discord.js-commando": "0.10.0",
     "jimp": "0.10.3",

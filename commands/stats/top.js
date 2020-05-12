@@ -1,5 +1,6 @@
 const { Command } = require("discord.js-commando");
 const { RichEmbed,MessageAttachment } = require("discord.js");
+const { countryFlagEmoji } = require("country-flag-emoji");
 const request = require("request");
 const moment = require('moment');
 const Jimp = require('jimp');
@@ -207,10 +208,16 @@ module.exports = class topscores extends Command {
 
                         embed.setTitle("Global: #" + keymodeObject.globalRank);
                         embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
-                        embed.setDescription("Country Ranking: #" + keymodeObject.countryRank);
+                        embed.setDescription(`${countryFlagEmoji.get(body.user.info.country)} Ranking: #` + keymodeObject.countryRank);
                         embed.setTimestamp()
                         //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
+
+                        if (body.user.info.avatar_url != "undefined")
+                            embed.setThumbnail(body.user.info.avatar_url);
+                        else
+                            embed.setThumbnail("https://i.imgur.com/mYYW5EO.png");
+
                         message.channel.send(embed)
 
                     } else if (!error1 && body1.status == 200 && body1.scores[0] == undefined) {
