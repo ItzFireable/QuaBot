@@ -50,7 +50,8 @@ module.exports = class recent extends Command {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
                         if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
-                            embed.setThumbnail(`../../cache/banners/${mapsetID}.jpg`)
+                            let image = `../../cache/banners/${mapsetID}.jpg`
+                            embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         } else {
                             let bannerURL = `https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`;
                             Jimp.read(bannerURL, (err, image) => {
@@ -59,7 +60,8 @@ module.exports = class recent extends Command {
                                     .crop(450,125,450,250)
                                     .write(`../../cache/banners/${mapsetID}.jpg`); // save
                             });
-                            embed.setThumbnail(`../../cache/banners/${mapsetID}.jpg`)
+                            let image = `../../cache/banners/${mapsetID}.jpg`
+                            embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         }
 
                         let stats = {
@@ -82,7 +84,7 @@ module.exports = class recent extends Command {
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
-                        message.channel.send(embed)
+                        message.channel.send(embed,files[{attachment:`../../cache/banners/${mapsetID}.jpg`,name:`${mapsetID}.jpg`}])
 
                     } else if (!error && body1.status == 200) {
 
