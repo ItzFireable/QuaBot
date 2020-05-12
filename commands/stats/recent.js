@@ -77,8 +77,6 @@ module.exports = class recent extends Command {
                             statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
         
                         embed.addField("Statistics", statisticsString.trim());
-                        
-                        embed.setThumbnail(bannerURL)
 
                         embed.setTitle(`${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`)
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
