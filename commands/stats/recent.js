@@ -46,6 +46,8 @@ module.exports = class recent extends Command {
                 request.get(url, { json: true }, (error, response, body) => {
                     if (!error && body.status == 200) {
 
+                        var scoreinfo = JSON.parse(body)
+
                         //let stats = {
                         //    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
                         //    "Ranked Score": keymodeObject.stats.ranked_score,
@@ -62,7 +64,7 @@ module.exports = class recent extends Command {
                         //embed.addField("Statistics", statisticsString.trim());
                         //console.log(statisticsString.trim())
 
-                        embed.setDescription(" - ")
+                        embed.setDescription(scoreinfo.scores[1].title + " - ")
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
