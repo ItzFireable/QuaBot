@@ -8,4 +8,12 @@
   },
   "author": "kimi",
   "license": "ISC"
+  "engines": {
+    "node": "14.2.0"
+  }
+  "dependencies": {
+    "discord.js": "11.5.1",
+    "discord.js-commando": "0.10.0",
+    "request": "2.88.23"
+  }
 }
