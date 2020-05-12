@@ -25,10 +25,10 @@ module.exports = class faq extends Command {
     }
     run(message, { key, language }) {
         let lookupLanguage = language in localization.prompts ? language : "en";
-        let message =
+        let faqMessage =
             key in localization.prompts[lookupLanguage]
                 ? localization.prompts[lookupLanguage][key]
                 : ["Question could not be found!"];
-        message.channel.send(message.join("\n"));
+        message.channel.send(faqMessage.join("\n"));
     }
 };
