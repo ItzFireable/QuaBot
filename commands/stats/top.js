@@ -98,7 +98,7 @@ module.exports = class topscores extends Command {
 
                         let stats1 = {
                             "** 1. **": `${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`,
-                            "** Score▸ **": `**${body1.scores[0].grade + rank}** ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
+                            "** Score▸ **": `**${body1.scores[0].grade + "rank"}** ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
                             "** Score set ▸ **": `${since1}`,
                         };
@@ -108,7 +108,7 @@ module.exports = class topscores extends Command {
 
                         let stats2 = {
                             "** 2. **": `${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name})`,
-                            "** Score ▸ **": `**${body1.scores[1].grade + rank}** ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `**${body1.scores[1].grade + "rank"}** ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[1].total_score} - x${body1.scores[1].max_combo} - [${body1.scores[1].count_marv}/${body1.scores[1].count_perf}/${body1.scores[1].count_great}/${body1.scores[1].count_good}/${body1.scores[1].count_okay}/${body1.scores[1].count_miss}]`,
                             "** Score set ▸ **": `${since2}`,
                         };
@@ -118,7 +118,7 @@ module.exports = class topscores extends Command {
 
                         let stats3 = {
                             "** 3. **": `${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name})`,
-                            "** Score ▸ **": `**grade${body1.scores[2].grade + rank}** ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `**grade${body1.scores[2].grade + "rank"}** ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[2].total_score} - x${body1.scores[2].max_combo} - [${body1.scores[2].count_marv}/${body1.scores[2].count_perf}/${body1.scores[2].count_great}/${body1.scores[2].count_good}/${body1.scores[2].count_okay}/${body1.scores[2].count_miss}]`,
                             "** Score set ▸ **": `${since3}`,
                         };
@@ -128,7 +128,7 @@ module.exports = class topscores extends Command {
 
                         let stats4 = {
                             "** 4. **": `${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name})`,
-                            "** Score ▸ **": `**${body1.scores[3].grade + rank}** ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `**${body1.scores[3].grade + "rank"}** ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[3].total_score} - x${body1.scores[3].max_combo} - [${body1.scores[3].count_marv}/${body1.scores[3].count_perf}/${body1.scores[3].count_great}/${body1.scores[3].count_good}/${body1.scores[3].count_okay}/${body1.scores[3].count_miss}]`,
                             "** Score set ▸ **": `${since4}`,
                         };
@@ -138,7 +138,7 @@ module.exports = class topscores extends Command {
 
                         let stats5 = {
                             "** 5. **": `${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name})`,
-                            "** Score ▸ **": `**${body1.scores[4].grade}** ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
+                            "** Score ▸ **": `**${body1.scores[4].grade + "rank"}** ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
                             "** Info ▸ **": `${body1.scores[4].total_score} - x${body1.scores[4].max_combo} - [${body1.scores[4].count_marv}/${body1.scores[4].count_perf}/${body1.scores[4].count_great}/${body1.scores[4].count_good}/${body1.scores[4].count_okay}/${body1.scores[4].count_miss}]`,
                             "** Score set ▸ **": `${since5}`,
                         };
