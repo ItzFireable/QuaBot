@@ -1,5 +1,5 @@
 const { Command } = require("discord.js-commando");
-import { prompts } from "localization.js";
+const localization = require("./commands/faq/localization.js");
 
 module.exports = class faq extends Command {
     constructor(client) {
@@ -24,8 +24,11 @@ module.exports = class faq extends Command {
         });
     }
     run(message, { key, language }) {
-        let lookupLanguage = language in prompts ? language : "en";
-        let message = key in prompts[lookupLanguage] ? prompts[lookupLanguage][key] : ["Question could not be found!"];
+        let lookupLanguage = language in localization.prompts ? language : "en";
+        let message =
+            key in localization.prompts[lookupLanguage]
+                ? localization.prompts[lookupLanguage][key]
+                : ["Question could not be found!"];
         message.channel.send(message.join("\n"));
     }
 };

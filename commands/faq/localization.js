@@ -4,7 +4,7 @@ const ALL_RANKED_MAPS_URL = "https://rhythmgamers.net/pack/";
 const JANKO_SKIN_REPO_URL = "https://gist.github.com/Janko5/d9b659122607a59a36879cd3d2b877ac";
 const OSU_SKIN_CONVERTER_URL = "https://gitlab.com/Adri-/quaverskinconverter#changelog";
 
-export const prompts = {
+exports.prompts = {
     en: {
         "playoffline": [
             "Quaver is still in closed alpha stage and not yet publicly released. However, you can download a test client without the online features from GitHub:",
