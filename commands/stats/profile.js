@@ -25,9 +25,7 @@ module.exports = class profile extends Command {
         });
     }
     run(message, { username, keymode }) {
-        let keysmode = 1;
-        if (keymode == "--7k")
-            keysmode = 2
+        let keysmode = keymode == "--7k" ? 2 : 1;
 
         let url = "https://api.quavergame.com/v1/users/full/" + username.replace(/_/g, "%20");
 
@@ -35,13 +33,6 @@ module.exports = class profile extends Command {
 
             if (!error && body.status == 200) {
                 let name = username.replace(/%20/g, " ").replace(/_/g, " ");
-                let embed = new RichEmbed();
-
-                if (body.user.info.avatar_url != "undefined")
-                    embed.setThumbnail(body.user.info.avatar_url);
-                else
-                    embed.setThumbnail("https://i.imgur.com/mYYW5EO.png");
-
                 let keymodeObject = null;
                 let keymodeString = "";
 
@@ -63,13 +54,19 @@ module.exports = class profile extends Command {
                     "Total Score": keymodeObject.stats.total_score,
                     "Accuracy": Math.round(keymodeObject.stats.overall_accuracy * 100) / 100,
                     "Play Count": keymodeObject.stats.play_count,
-                    "Max Combo": keymodeObject.stats.max_combo,
-
+                    "Max Combo": keymodeObject.stats.max_combo
                 };
 
                 let statisticsString = "";
                 for (const key in stats)
                     statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
+
+                let embed = new RichEmbed();
+
+                if (body.user.info.avatar_url != "undefined")
+                    embed.setThumbnail(body.user.info.avatar_url);
+                else
+                    embed.setThumbnail("https://i.imgur.com/mYYW5EO.png");
 
                 embed.setColor(0x44e8ff);
                 embed.setTitle("Global: #" + keymodeObject.globalRank);
