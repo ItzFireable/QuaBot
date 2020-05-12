@@ -109,7 +109,7 @@ module.exports = class topplays extends Command {
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
-                    } else if (!error && body1.status == 200) {
+                    } else if (!error && body1.status == 404) {
 
                         let embed = new RichEmbed()
                         embed.setColor(0x44e8ff)
@@ -130,7 +130,7 @@ module.exports = class topplays extends Command {
                     }
                 })
 
-            } else if (!error && body.status == 200) {
+            } else if (!error && body.status == 404) {
 
                 let embed = new RichEmbed()
                 embed.setColor(0x44e8ff)
