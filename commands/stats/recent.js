@@ -1,5 +1,5 @@
 const { Command } = require("discord.js-commando");
-const { RichEmbed } = require("discord.js");
+const { RichEmbed,MessageAttachment } = require("discord.js");
 const request = require("request");
 const Jimp = require('jimp');
 const fs = require('fs');
@@ -49,7 +49,7 @@ module.exports = class recent extends Command {
                     if (!error1 && body1.status == 200) {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
-                        let attachment = new Discord.MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
+                        let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
                         if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
                             let image = `../../cache/banners/${mapsetID}.jpg`
                             embed.setThumbnail(`attachment://${mapsetID}.jpg`)
