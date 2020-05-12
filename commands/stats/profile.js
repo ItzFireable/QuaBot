@@ -25,6 +25,7 @@ module.exports = class profile extends Command {
 		});
 	}
   run(message, { username,keymode }) {
+		var linkname = username.replace(/_/g, '%20');
 		var keysmode = 1
 		if (keymode == "--7k") {
 			var keysmode = 2
