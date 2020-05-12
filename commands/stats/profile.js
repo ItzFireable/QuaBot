@@ -32,7 +32,7 @@ module.exports = class profile extends Command {
 		} else {
 			var keysmode = 1
 		}
-    request.get("https://api.quavergame.com/v1/users/full/" + username, {json:true}, (error, response, body) => {
+    request.get("https://api.quavergame.com/v1/users/full/" + linkname, {json:true}, (error, response, body) => {
       if (!error && body.status == 200) {
 				var name = username.replace(/%20/g, ' ');
 				let embed = new RichEmbed()
