@@ -33,12 +33,12 @@ module.exports = class profile extends Command {
 		}
     request.get("https://api.quavergame.com/v1/users/full/" + username, {json:true}, (error, response, body) => {
       if (!error && body.status == 200) {
-				username.replace(/%20/g, ' ');
+				var name = username.replace(/%20/g, ' ');
 				let embed = new RichEmbed()
 		    embed.setColor(0x44e8ff)
 				if (keysmode == 1) {
 					embed.setTitle("Global: #" + body.user.keys4.globalRank)
-					embed.setAuthor("Stats for " + username + " (4K)")
+					embed.setAuthor("Stats for " + name + " (4K)")
 					if (body.user.info.avatar_url != 'undefined') {
 						embed.setThumbnail(body.user.info.avatar_url)
 					} else {
@@ -51,7 +51,7 @@ module.exports = class profile extends Command {
 					message.embed(embed)
 				} else if (keysmode == 2) {
 					embed.setTitle("Global: #" + body.user.keys7.globalRank)
-					embed.setAuthor("Stats for " + username + " (7K)")
+					embed.setAuthor("Stats for " + name + " (7K)")
 					if (body.user.info.avatar_url != 'undefined') {
 						embed.setThumbnail(body.user.info.avatar_url)
 					} else {
@@ -65,10 +65,10 @@ module.exports = class profile extends Command {
 				}
 		    //.setURL(url)
       } else if (!error && body.status == 404) {
-				username.replace(/%20/g, ' ');
+				var name = username.replace(/%20/g, ' ');
 				let embed = new RichEmbed()
 				embed.setColor(0x44e8ff)
-				embed.setAuthor("Stats for " + username)
+				embed.setAuthor("Stats for " + name)
 				embed.setThumbnail('https://i.imgur.com/mYYW5EO.png')
 				embed.setDescription("This user does not exist!")
 				embed.addField("Statistics","No data can be shown!")
