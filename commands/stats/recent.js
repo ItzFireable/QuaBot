@@ -1,6 +1,8 @@
 const { Command } = require("discord.js-commando");
 const { RichEmbed } = require("discord.js");
 const request = require("request");
+const Jimp = require('jimp');
+const fs = require('fs');
 
 module.exports = class recent extends Command {
     constructor(client) {
@@ -46,6 +48,19 @@ module.exports = class recent extends Command {
 
                     if (!error1 && body1.status == 200) {
 
+                        let mapsetID = body1.scores[0].map.mapset_id;
+                        if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
+                            embed.setThumbnail(`../../cache/banners/${mapsetID}.jpg`)
+                        } else {
+                            let bannerURL = `https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`;
+                            Jimp.read(bannerURL, (err, image) => {
+                                if (err) throw err;
+                                image
+                                    .crop(200,0,600,250)
+                                    .write(`../../cache/banners/${mapsetID}.jpg`); // save
+                            });
+                            embed.setThumbnail(`../../cache/banners/${mapsetID}.jpg`)
+                        }
 
                         let stats = {
                             "**Rating**": Math.round(body1.scores[0].performance_rating * 100) / 100,
@@ -62,8 +77,7 @@ module.exports = class recent extends Command {
                             statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
         
                         embed.addField("Statistics", statisticsString.trim());
-
-                        let bannerURL = `https://quaver.blob.core.windows.net/banners/${body1.scores[0].map.mapset_id}_banner.jpg`;
+                        
                         embed.setThumbnail(bannerURL)
 
                         embed.setTitle(`${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`)
