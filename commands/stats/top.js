@@ -105,7 +105,7 @@ module.exports = class topplays extends Command {
                         embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
                         embed.setDescription("Country Ranking: #" + keymodeObject.countryRank);
                         embed.setTimestamp()
-                        embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
+                        //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
