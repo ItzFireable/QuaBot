@@ -38,7 +38,6 @@ module.exports = class recent extends Command {
 
                 embed.setColor(0x44e8ff)
                 embed.setAuthor("Recent score for " + name)
-                embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
 
                 let id = body.user.info.id;
                 let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=1";
@@ -51,10 +50,11 @@ module.exports = class recent extends Command {
                         let stats = {
                             "Rating": Math.round(body1.scores[0].performance_rating * 100) / 100,
                             "Score": body1.scores[0].total_score,
+                            "Max Combo": body1.scores[0].max_combo,
+                            "Mods":body1.scores[0].mods_string,
                             "Grade": body1.scores[0].grade,
                             "Accuracy": Math.round(body1.scores[0].accuracy * 100) / 100,
-                            "Ratio": Math.round(body1.scores[0].ratio * 10) / 10 + ":1",
-                            "Max Combo": body1.scores[0].max_combo
+                            "Ratio": Math.round(body1.scores[0].ratio * 10) / 10 + ":1"
                         };
         
                         let statisticsString = "";
@@ -65,6 +65,7 @@ module.exports = class recent extends Command {
                         console.log(statisticsString.trim())
 
                         let bannerURL = `https://quaver.blob.core.windows.net/banners/${body1.scores[0].map.mapset_id}_banner.jpg`;
+                        embed.setThumbnail(bannerURL)
 
                         embed.setTitle(`${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`)
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
