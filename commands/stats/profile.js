@@ -33,6 +33,7 @@ module.exports = class profile extends Command {
 		}
     request.get("https://api.quavergame.com/v1/users/full/" + username, {json:true}, (error, response, body) => {
       if (!error && body.status == 200) {
+				username.replace(/%20/g, ' ');
 				let embed = new RichEmbed()
 		    embed.setColor(0x44e8ff)
 				if (keysmode == 1) {
@@ -64,6 +65,7 @@ module.exports = class profile extends Command {
 				}
 		    //.setURL(url)
       } else if (!error && body.status == 404) {
+				username.replace(/%20/g, ' ');
 				let embed = new RichEmbed()
 				embed.setColor(0x44e8ff)
 				embed.setAuthor("Stats for " + username)
