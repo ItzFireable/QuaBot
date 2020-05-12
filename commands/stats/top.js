@@ -124,7 +124,7 @@ module.exports = class topplays extends Command {
                     } else {
 
                         console.error("Unable to send message.");
-                        console.error(response1);
+                        //console.error(response1);
                         console.error(error1);
 
                     }
@@ -145,7 +145,7 @@ module.exports = class topplays extends Command {
             } else {
 
                 console.error("Unable to send message.");
-                console.error(response);
+                //console.error(response);
                 console.error(error);
 
             }
