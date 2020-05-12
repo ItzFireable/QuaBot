@@ -60,7 +60,7 @@ module.exports = class recent extends Command {
                         //    statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
         
                         //embed.addField("Statistics", statisticsString.trim());
-                        console.log(statisticsString.trim())
+                        //console.log(statisticsString.trim())
 
                         embed.setDescription(" - ")
                         embed.setTimestamp()
