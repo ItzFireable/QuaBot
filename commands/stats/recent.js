@@ -48,13 +48,13 @@ module.exports = class recent extends Command {
 
 
                         let stats = {
-                            "Rating": Math.round(body1.scores[0].performance_rating * 100) / 100,
-                            "Score": body1.scores[0].total_score,
-                            "Max Combo": body1.scores[0].max_combo,
-                            "Mods":body1.scores[0].mods_string,
-                            "Grade": body1.scores[0].grade,
-                            "Accuracy": Math.round(body1.scores[0].accuracy * 100) / 100,
-                            "Ratio": Math.round(body1.scores[0].ratio * 10) / 10 + ":1"
+                            "**Rating**": Math.round(body1.scores[0].performance_rating * 100) / 100,
+                            "**Score**": body1.scores[0].total_score,
+                            "**Max Combo**": body1.scores[0].max_combo,
+                            "**Mods**":body1.scores[0].mods_string,
+                            "**Grade**": body1.scores[0].grade,
+                            "**Accuracy**": Math.round(body1.scores[0].accuracy * 100) / 100,
+                            "**Ratio**": Math.round(body1.scores[0].ratio * 10) / 10 + ":1"
                         };
         
                         let statisticsString = "";
