@@ -50,18 +50,23 @@ module.exports = class recent extends Command {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
                         let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
+
                         if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
-                            let image = `../../cache/banners/${mapsetID}.jpg`
+
+                            let image = `../../cache/banners/${mapsetID}.jpg`;
                             embed.setThumbnail(`attachment://${mapsetID}.jpg`)
+
                         } else {
+
                             let bannerURL = `https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`;
                             Jimp.read(bannerURL, (err, image) => {
                                 if (err) throw err;
                                 image
-                                    .crop(450,125,450,250)
-                                    .write(`../../cache/banners/${mapsetID}.jpg`); // save
+                                    .crop(150,9,600,250)
+                                    .write(`../../cache/banners/${mapsetID}.jpg`);
                             });
-                            let image = `../../cache/banners/${mapsetID}.jpg`
+
+                            let image = `../../cache/banners/${mapsetID}.jpg`;
                             embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         }
 
