@@ -87,14 +87,14 @@ module.exports = class topscores extends Command {
                         let date1 = new Date(body1.scores[0].time);
                         let since1 = moment(date1).fromNow()
                         
-                        let Xrank = new Emoji("585556037319524352");
-                        let SSrank = new Emoji("585555983921709087");
-                        let Srank = new Emoji("585555950623260673");
-                        let Arank = new Emoji("585555734205562880");
-                        let Brank = new Emoji("585555793248780288");
-                        let Crank = new Emoji("585555833564299284");
-                        let Drank = new Emoji("585555873951383554");
-                        let Frank = new Emoji("585555916292751390");
+                        let Xrank = new Emoji.id = "585556037319524352";
+                        let SSrank = new Emoji.id = "585555983921709087";
+                        let Srank = new Emoji.id = "585555950623260673";
+                        let Arank = new Emoji.id = "585555734205562880";
+                        let Brank = new Emoji.id = "585555793248780288";
+                        let Crank = new Emoji.id = "585555833564299284";
+                        let Drank = new Emoji.id = "585555873951383554";
+                        let Frank = new Emoji.id = "585555916292751390";
 
                         let stats1 = {
                             "** **": `**${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})**`,
