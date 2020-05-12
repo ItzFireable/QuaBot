@@ -49,12 +49,12 @@ module.exports = class profile extends Command {
                 }
 
                 let stats = {
-                    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
-                    "Ranked Score": keymodeObject.stats.ranked_score,
-                    "Total Score": keymodeObject.stats.total_score,
-                    "Accuracy": Math.round(keymodeObject.stats.overall_accuracy * 100) / 100,
-                    "Play Count": keymodeObject.stats.play_count,
-                    "Max Combo": keymodeObject.stats.max_combo
+                    "**Overall Rating**": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
+                    "**Ranked Score**": keymodeObject.stats.ranked_score,
+                    "**Total Score**": keymodeObject.stats.total_score,
+                    "**Accuracy**": Math.round(keymodeObject.stats.overall_accuracy * 100) / 100,
+                    "**Play Count**": keymodeObject.stats.play_count,
+                    "**Max Combo**": keymodeObject.stats.max_combo
                 };
 
                 let statisticsString = "";
