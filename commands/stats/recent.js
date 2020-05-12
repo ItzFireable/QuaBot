@@ -49,6 +49,7 @@ module.exports = class recent extends Command {
                     if (!error1 && body1.status == 200) {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
+                        let attachment = new Discord.MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
                         if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
                             let image = `../../cache/banners/${mapsetID}.jpg`
                             embed.setThumbnail(`attachment://${mapsetID}.jpg`)
@@ -84,7 +85,7 @@ module.exports = class recent extends Command {
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
-                        message.channel.send(embed,files[{attachment:`../../cache/banners/${mapsetID}.jpg`,name:`${mapsetID}.jpg`}])
+                        message.channel.send(embed)
 
                     } else if (!error && body1.status == 200) {
 
