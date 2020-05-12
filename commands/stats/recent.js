@@ -43,7 +43,7 @@ module.exports = class recent extends Command {
                 let id = body.user.info.id;
                 let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=1";
 
-                request.get(url, { json: true }, (error1, response1, body1) => {
+                request.get(latest, { json: true }, (error1, response1, body1) => {
 
                     if (!error1 && body1.status == 200) {
 
