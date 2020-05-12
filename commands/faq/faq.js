@@ -1,5 +1,5 @@
 const { Command } = require("discord.js-commando");
-const localization = require("./commands/faq/localization.js");
+const localization = require("./localization.js");
 
 module.exports = class faq extends Command {
     constructor(client) {
