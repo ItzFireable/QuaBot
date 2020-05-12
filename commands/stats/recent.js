@@ -47,7 +47,7 @@ module.exports = class recent extends Command {
 
                     if (!error1 && body1.status == 200) {
 
-                        console.log(body1);
+                        console.log(body1.scores[0]);
 
                         //let stats = {
                         //    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
