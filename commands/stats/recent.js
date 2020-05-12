@@ -46,7 +46,7 @@ module.exports = class recent extends Command {
                 request.get(url, { json: true }, (error, response, body) => {
                     if (!error && body.status == 200) {
 
-                        console.log(body.scores);
+                        console.log(body);
 
                         //let stats = {
                         //    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
