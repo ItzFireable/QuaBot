@@ -87,14 +87,14 @@ module.exports = class topscores extends Command {
                         let date1 = new Date(body1.scores[0].time);
                         let since1 = moment(date1).fromNow()
                         
-                        let Xrank = "<:gradex:585556037319524352>";
-                        let SSrank = "<:gradess:585555983921709087>";
-                        let Srank = "<:grades:585555950623260673>";
-                        let Arank = "<:gradea:585555734205562880>";
-                        let Brank = "<:gradeb:585555793248780288>";
-                        let Crank = "<:gradec:585555833564299284>";
-                        let Drank = "<:graded:585555873951383554>";
-                        let Frank = "<:gradef:585555916292751390>";
+                        let Xrank = "<:gradex:709867866966720603>";
+                        let SSrank = "<:gradess:709867642764132393>";
+                        let Srank = "<:grades:709867608119443526>";
+                        let Arank = "<:gradea:709867725048250478>";
+                        let Brank = "<:gradeb:709867735718559845>";
+                        let Crank = "<:gradec:709867745948336232>";
+                        let Drank = "<:graded:709867756614451261>";
+                        let Frank = "<:gradef:709867766521528403>";
 
                         let stats1 = {
                             "** **": `**${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})**`,
