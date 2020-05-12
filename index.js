@@ -21,9 +21,13 @@ client.registry
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    client.user.setActivity("Quaver", {
-        type: "ONLINE"
-    });
+    client.user.setPresence({
+        game: { 
+            name: 'Quaver',
+            type: 'WATCHING'
+        },
+        status: 'idle'
+    })
 });
 
 client.on('error', console.error);
