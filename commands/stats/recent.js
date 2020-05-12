@@ -1,6 +1,7 @@
 const { Command } = require("discord.js-commando");
 const { RichEmbed,MessageAttachment } = require("discord.js");
 const request = require("request");
+const moment = require('moment');
 const Jimp = require('jimp');
 const fs = require('fs');
 
@@ -49,7 +50,7 @@ module.exports = class recent extends Command {
                     if (!error1 && body1.status == 200) {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
-                        let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
+                        //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
 
                         //if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
 
@@ -70,6 +71,9 @@ module.exports = class recent extends Command {
                         //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         //}
 
+                        let date = new Date(body1.scores[0].time);
+                        let since = moment(date).fromNow()
+
                         let stats = {
                             "**Rating**": Math.round(body1.scores[0].performance_rating * 100) / 100,
                             "**Score**": body1.scores[0].total_score,
@@ -77,7 +81,8 @@ module.exports = class recent extends Command {
                             "**Mods**":body1.scores[0].mods_string,
                             "**Grade**": body1.scores[0].grade,
                             "**Accuracy**": Math.round(body1.scores[0].accuracy * 100) / 100,
-                            "**Ratio**": Math.round(body1.scores[0].ratio * 10) / 10 + ":1"
+                            "**Ratio**": Math.round(body1.scores[0].ratio * 10) / 10 + ":1",
+                            "**Score Set**": since
                         };
         
                         let statisticsString = "";
