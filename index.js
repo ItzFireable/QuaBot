@@ -26,4 +26,4 @@ client.registry
 
   client.on('error', console.error);
 
-client.login('NzA5NDM3MDUyNzQzMDU3NDE4.Xrl46g.BQ9elInn_tdh-WKtfc9tQsdgg-k');
+client.login(process.env.BOT_TOKEN);
