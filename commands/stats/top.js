@@ -5,12 +5,12 @@ const moment = require('moment');
 const Jimp = require('jimp');
 const fs = require('fs');
 
-module.exports = class topplays extends Command {
+module.exports = class topscores extends Command {
     constructor(client) {
         super(client, {
-            name: "topplays",
+            name: "topscores",
             group: "stats",
-            memberName: "topplays",
+            memberName: "topscores",
             description: "Gets players top 5 plays.",
             args: [
                 {
@@ -84,22 +84,77 @@ module.exports = class topplays extends Command {
                         //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         //}
 
-                        let date = new Date(body1.scores[0].time);
-                        let since = moment(date).fromNow()
+                        let date1 = new Date(body1.scores[0].time);
+                        let since1 = moment(date1).fromNow()
 
-                        let stats = {
-                            "**1.**": `${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name}) - ${Math.round(body1.scores[0].accuracy * 100) / 100} / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
-                            "**2.**": `${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name}) - ${Math.round(body1.scores[1].accuracy * 100) / 100} / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
-                            "**3.**": `${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name}) - ${Math.round(body1.scores[2].accuracy * 100) / 100} / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
-                            "**4.**": `${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name}) - ${Math.round(body1.scores[3].accuracy * 100) / 100} / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
-                            "**5.**": `${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name}) - ${Math.round(body1.scores[4].accuracy * 100) / 100} / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
+                        let stats1 = {
+                            "**1.**": `${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`,
+                            "** **": `**${body1.scores[0].grade}** ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
+                            "** **": `${body1.scores[0].score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
+                            "** **": `Score set ${since1}`,
+                        };
+
+                        let date2 = new Date(body1.scores[1].time);
+                        let since2 = moment(date2).fromNow()
+
+                        let stats2 = {
+                            "**2.**": `${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name})`,
+                            "** **": `**${body1.scores[1].grade}** ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
+                            "** **": `${body1.scores[1].score} - x${body1.scores[1].max_combo} - [${body1.scores[1].count_marv}/${body1.scores[1].count_perf}/${body1.scores[1].count_great}/${body1.scores[1].count_good}/${body1.scores[1].count_okay}/${body1.scores[1].count_miss}]`,
+                            "** **": `Score set ${since1}`,
+                        };
+
+                        let date3 = new Date(body1.scores[2].time);
+                        let since3 = moment(date3).fromNow()
+
+                        let stats3 = {
+                            "**3.**": `${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name})`,
+                            "** **": `**${body1.scores[2].grade}** ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
+                            "** **": `${body1.scores[2].score} - x${body1.scores[2].max_combo} - [${body1.scores[2].count_marv}/${body1.scores[2].count_perf}/${body1.scores[2].count_great}/${body1.scores[2].count_good}/${body1.scores[2].count_okay}/${body1.scores[2].count_miss}]`,
+                            "** **": `Score set ${since1}`,
+                        };
+
+                        let date4 = new Date(body1.scores[3].time);
+                        let since4 = moment(date4).fromNow()
+
+                        let stats4 = {
+                            "**4.**": `${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name})`,
+                            "** **": `**${body1.scores[3].grade}** ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
+                            "** **": `${body1.scores[3].score} - x${body1.scores[3].max_combo} - [${body1.scores[3].count_marv}/${body1.scores[3].count_perf}/${body1.scores[3].count_great}/${body1.scores[3].count_good}/${body1.scores[3].count_okay}/${body1.scores[3].count_miss}]`,
+                            "** **": `Score set ${since1}`,
+                        };
+
+                        let date5 = new Date(body1.scores[4].time);
+                        let since5 = moment(date5).fromNow()
+
+                        let stats5 = {
+                            "**5.**": `${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name})`,
+                            "** **": `**${body1.scores[4].grade}** ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
+                            "** **": `${body1.scores[4].score} - x${body1.scores[4].max_combo} - [${body1.scores[4].count_marv}/${body1.scores[4].count_perf}/${body1.scores[4].count_great}/${body1.scores[4].count_good}/${body1.scores[4].count_okay}/${body1.scores[4].count_miss}]`,
+                            "** **": `Score set ${since1}`,
                         };
         
-                        let statisticsString = "";
-                        for (const key in stats)
-                            statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
+                        let statisticsString1 = "";
+                        for (const key in stats1)
+                            statisticsString1 += `${key}: ${stats1[key].toLocaleString()}\n`;
+                        let statisticsString2 = "";
+                        for (const key in stats2)
+                            statisticsString2 += `${key}: ${stats2[key].toLocaleString()}\n`;
+                        let statisticsString3 = "";
+                        for (const key in stats3)
+                            statisticsString3 += `${key}: ${stats3[key].toLocaleString()}\n`;
+                        let statisticsString4 = "";
+                        for (const key in stats4)
+                            statisticsString4 += `${key}: ${stats4[key].toLocaleString()}\n`;
+                        let statisticsString5 = "";
+                        for (const key in stats5)
+                            statisticsString5 += `${key}: ${stats5[key].toLocaleString()}\n`;
         
-                        embed.addField("Top Plays", statisticsString.trim());
+                        embed.addField("", statisticsString1.trim());
+                        embed.addField("", statisticsString2.trim());
+                        embed.addField("", statisticsString3.trim());
+                        embed.addField("", statisticsString4.trim());
+                        embed.addField("", statisticsString5.trim());
 
                         embed.setTitle("Global: #" + keymodeObject.globalRank);
                         embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
