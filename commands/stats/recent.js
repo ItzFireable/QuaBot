@@ -49,12 +49,12 @@ module.exports = class recent extends Command {
 
 
                         let stats = {
-                            "Rating": Math.round(body.scores[0].performance_rating * 100) / 100,
-                            "Score": body.scores[0].total_score,
-                            "Grade": body.scores[0].grade,
-                            "Accuracy": Math.round(body.scores[0].accuracy * 100) / 100,
-                            "Ratio": body.scores[0].ratio + ":1",
-                            "Max Combo": body.scores[0].max_combo
+                            "Rating": Math.round(body1.scores[0].performance_rating * 100) / 100,
+                            "Score": body1.scores[0].total_score,
+                            "Grade": body1.scores[0].grade,
+                            "Accuracy": Math.round(body1.scores[0].accuracy * 100) / 100,
+                            "Ratio": body1.scores[0].ratio + ":1",
+                            "Max Combo": body1.scores[0].max_combo
                         };
         
                         let statisticsString = "";
@@ -64,7 +64,8 @@ module.exports = class recent extends Command {
                         embed.addField("Statistics", statisticsString.trim());
                         console.log(statisticsString.trim())
 
-                        embed.setDescription(body1.scores[0].map.artist + " - " + body1.scores[0].map.title)
+                        embed.setTitle(body1.scores[0].map.artist + " - " + body1.scores[0].map.title)
+                        embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
