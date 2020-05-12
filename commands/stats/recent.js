@@ -53,7 +53,7 @@ module.exports = class recent extends Command {
                             "Score": body1.scores[0].total_score,
                             "Grade": body1.scores[0].grade,
                             "Accuracy": Math.round(body1.scores[0].accuracy * 100) / 100,
-                            "Ratio": body1.scores[0].ratio + ":1",
+                            "Ratio": Math.round(body1.scores[0].ratio * 10) / 10 + ":1",
                             "Max Combo": body1.scores[0].max_combo
                         };
         
@@ -64,7 +64,9 @@ module.exports = class recent extends Command {
                         embed.addField("Statistics", statisticsString.trim());
                         console.log(statisticsString.trim())
 
-                        embed.setTitle(body1.scores[0].map.artist + " - " + body1.scores[0].map.title)
+                        let bannerURL = `https://quaver.blob.core.windows.net/banners/${body1.scores[0].map.mapset_id}_banner.jpg`;
+
+                        embed.setTitle(`${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`)
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
