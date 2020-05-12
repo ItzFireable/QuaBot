@@ -41,12 +41,13 @@ module.exports = class recent extends Command {
                 embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
 
                 let id = body.user.info.id;
-                let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=1"
+                let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=1";
 
-                request.get(url, { json: true }, (error, response, body) => {
-                    if (!error && body.status == 200) {
+                request.get(url, { json: true }, (error1, response1, body1) => {
 
-                        console.log(body);
+                    if (!error1 && body1.status == 200) {
+
+                        console.log(body1);
 
                         //let stats = {
                         //    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
@@ -69,7 +70,7 @@ module.exports = class recent extends Command {
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
-                    } else if (!error && body.status == 200) {
+                    } else if (!error && body1.status == 200) {
 
                         let embed = new RichEmbed()
                         embed.setColor(0x44e8ff)
@@ -84,8 +85,8 @@ module.exports = class recent extends Command {
                     } else {
 
                         console.error("Unable to send message.");
-                        console.error(response);
-                        console.error(error);
+                        console.error(response1);
+                        console.error(error1);
 
                     }
                 })
