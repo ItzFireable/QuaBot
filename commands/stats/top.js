@@ -88,50 +88,50 @@ module.exports = class topscores extends Command {
                         let since1 = moment(date1).fromNow()
 
                         let stats1 = {
-                            "**1.**": `${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`,
-                            "**▸ **": `**${body1.scores[0].grade}** ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
-                            "**▸ **": `${body1.scores[0].score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
-                            "**▸ **": `Score set ${since1}`,
+                            "** 1. **": `${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`,
+                            "** Score▸ **": `**${body1.scores[0].grade}** ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
+                            "** Info ▸ **": `${body1.scores[0].score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
+                            "** Score set ▸ **": `${since1}`,
                         };
 
                         let date2 = new Date(body1.scores[1].time);
                         let since2 = moment(date2).fromNow()
 
                         let stats2 = {
-                            "**2.**": `${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name})`,
-                            "**▸ **": `**${body1.scores[1].grade}** ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
-                            "**▸ **": `${body1.scores[1].score} - x${body1.scores[1].max_combo} - [${body1.scores[1].count_marv}/${body1.scores[1].count_perf}/${body1.scores[1].count_great}/${body1.scores[1].count_good}/${body1.scores[1].count_okay}/${body1.scores[1].count_miss}]`,
-                            "**▸ **": `Score set ${since2}`,
+                            "** 2. **": `${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name})`,
+                            "** Score ▸ **": `**${body1.scores[1].grade}** ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
+                            "** Info ▸ **": `${body1.scores[1].score} - x${body1.scores[1].max_combo} - [${body1.scores[1].count_marv}/${body1.scores[1].count_perf}/${body1.scores[1].count_great}/${body1.scores[1].count_good}/${body1.scores[1].count_okay}/${body1.scores[1].count_miss}]`,
+                            "** Score set ▸ **": `${since2}`,
                         };
 
                         let date3 = new Date(body1.scores[2].time);
                         let since3 = moment(date3).fromNow()
 
                         let stats3 = {
-                            "**3.**": `${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name})`,
-                            "**▸ **": `**${body1.scores[2].grade}** ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
-                            "**▸ **": `${body1.scores[2].score} - x${body1.scores[2].max_combo} - [${body1.scores[2].count_marv}/${body1.scores[2].count_perf}/${body1.scores[2].count_great}/${body1.scores[2].count_good}/${body1.scores[2].count_okay}/${body1.scores[2].count_miss}]`,
-                            "**▸ **": `Score set ${since3}`,
+                            "** 3. **": `${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name})`,
+                            "** Score ▸ **": `**${body1.scores[2].grade}** ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
+                            "** Info ▸ **": `${body1.scores[2].score} - x${body1.scores[2].max_combo} - [${body1.scores[2].count_marv}/${body1.scores[2].count_perf}/${body1.scores[2].count_great}/${body1.scores[2].count_good}/${body1.scores[2].count_okay}/${body1.scores[2].count_miss}]`,
+                            "** Score set ▸ **": `${since3}`,
                         };
 
                         let date4 = new Date(body1.scores[3].time);
                         let since4 = moment(date4).fromNow()
 
                         let stats4 = {
-                            "**4.**": `${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name})`,
-                            "** **": `**${body1.scores[3].grade}** ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
-                            "** **": `${body1.scores[3].score} - x${body1.scores[3].max_combo} - [${body1.scores[3].count_marv}/${body1.scores[3].count_perf}/${body1.scores[3].count_great}/${body1.scores[3].count_good}/${body1.scores[3].count_okay}/${body1.scores[3].count_miss}]`,
-                            "** **": `Score set ${since4}`,
+                            "** 4. **": `${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name})`,
+                            "** Score ▸ **": `**${body1.scores[3].grade}** ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
+                            "** Info ▸ **": `${body1.scores[3].score} - x${body1.scores[3].max_combo} - [${body1.scores[3].count_marv}/${body1.scores[3].count_perf}/${body1.scores[3].count_great}/${body1.scores[3].count_good}/${body1.scores[3].count_okay}/${body1.scores[3].count_miss}]`,
+                            "** Score set ▸ **": `${since4}`,
                         };
 
                         let date5 = new Date(body1.scores[4].time);
                         let since5 = moment(date5).fromNow()
 
                         let stats5 = {
-                            "**5.**": `${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name})`,
-                            "** **": `**${body1.scores[4].grade}** ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
-                            "** **": `${body1.scores[4].score} - x${body1.scores[4].max_combo} - [${body1.scores[4].count_marv}/${body1.scores[4].count_perf}/${body1.scores[4].count_great}/${body1.scores[4].count_good}/${body1.scores[4].count_okay}/${body1.scores[4].count_miss}]`,
-                            "** **": `Score set ${since5}`,
+                            "** 5. **": `${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name})`,
+                            "** Score ▸ **": `**${body1.scores[4].grade}** ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
+                            "** Info ▸ **": `${body1.scores[4].score} - x${body1.scores[4].max_combo} - [${body1.scores[4].count_marv}/${body1.scores[4].count_perf}/${body1.scores[4].count_great}/${body1.scores[4].count_good}/${body1.scores[4].count_okay}/${body1.scores[4].count_miss}]`,
+                            "** Score set ▸ **": `${since5}`,
                         };
         
                         let statisticsString1 = "";
