@@ -66,15 +66,15 @@ module.exports = class recent extends Command {
                     if (!error && body.status == 200) {
 
                         let stats = {
-                            "Rating": Math.round(body.scores.performance_rating * 100) / 100,
-                            "Score": body.scores.total_score,
-                            "Grade": body.scores.grade,
-                            "Accuracy": Math.round(body.scores.accuracy * 100) / 100,
-                            "Ratio": Math.round(body.scores.ratio * 10) / 10 + ":1",
-                            "Combo": body.scores.max_combo
+                            "Rating": Math.round(body.scores[1].performance_rating * 100) / 100,
+                            "Score": body.scores[1].total_score,
+                            "Grade": body.scores[1].grade,
+                            "Accuracy": Math.round(body.scores[1].accuracy * 100) / 100,
+                            "Ratio": Math.round(body.scores[1].ratio * 10) / 10 + ":1",
+                            "Combo": body.scores[1].max_combo
                         };
 
-                        embed.setTitle(body.scores.artist + " - " + body.scores.title);
+                        embed.setTitle(body.scores[1].artist + " - " + body.scores[1].title);
                         embed.addField("Statistics", statisticsString.trim());
                         message.channel.send(embed)
 
