@@ -47,7 +47,7 @@ module.exports = class recent extends Command {
 
                 request.get(latest, { json: true }, (error1, response1, body1) => {
 
-                    if (!error1 && body1.status == 200) {
+                    if (!error1 && body1.status == 200 && body1.scores[0] != "undefined") {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
                         //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
