@@ -150,11 +150,11 @@ module.exports = class topscores extends Command {
                         for (const key in stats5)
                             statisticsString5 += `${key}: ${stats5[key].toLocaleString()}\n`;
         
-                        embed.addField("", statisticsString1.trim());
-                        embed.addField("", statisticsString2.trim());
-                        embed.addField("", statisticsString3.trim());
-                        embed.addField("", statisticsString4.trim());
-                        embed.addField("", statisticsString5.trim());
+                        embed.addField("Play #1", statisticsString1.trim());
+                        embed.addField("Play #2", statisticsString2.trim());
+                        embed.addField("Play #3", statisticsString3.trim());
+                        embed.addField("Play #4", statisticsString4.trim());
+                        embed.addField("Play #5", statisticsString5.trim());
 
                         embed.setTitle("Global: #" + keymodeObject.globalRank);
                         embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
