@@ -1,5 +1,5 @@
 const { Command } = require("discord.js-commando");
-const { RichEmbed,MessageAttachment,Emoji } = require("discord.js");
+const { RichEmbed,MessageAttachment } = require("discord.js");
 const request = require("request");
 const moment = require('moment');
 const Jimp = require('jimp');
@@ -87,14 +87,14 @@ module.exports = class topscores extends Command {
                         let date1 = new Date(body1.scores[0].time);
                         let since1 = moment(date1).fromNow()
                         
-                        let Xrank = new Emoji.id = "585556037319524352";
-                        let SSrank = new Emoji.id = "585555983921709087";
-                        let Srank = new Emoji.id = "585555950623260673";
-                        let Arank = new Emoji.id = "585555734205562880";
-                        let Brank = new Emoji.id = "585555793248780288";
-                        let Crank = new Emoji.id = "585555833564299284";
-                        let Drank = new Emoji.id = "585555873951383554";
-                        let Frank = new Emoji.id = "585555916292751390";
+                        let Xrank = "<:gradex:585556037319524352>";
+                        let SSrank = "<:gradess:585555983921709087>";
+                        let Srank = "<:grades:585555950623260673>";
+                        let Arank = "<:gradea:585555734205562880>";
+                        let Brank = "<:gradeb:585555793248780288>";
+                        let Crank = "<:gradec:585555833564299284>";
+                        let Drank = "<:graded:585555873951383554>";
+                        let Frank = "<:gradef:585555916292751390>";
 
                         let stats1 = {
                             "** **": `**${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})**`,
