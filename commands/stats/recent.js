@@ -51,24 +51,24 @@ module.exports = class recent extends Command {
                         let mapsetID = body1.scores[0].map.mapset_id;
                         let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
 
-                        if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
+                        //if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
 
-                            let image = `../../cache/banners/${mapsetID}.jpg`;
-                            embed.setThumbnail(`attachment://${mapsetID}.jpg`)
+                        //    let image = `../../cache/banners/${mapsetID}.jpg`;
+                        //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
 
-                        } else {
+                        //} else {
 
-                            let bannerURL = `https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`;
-                            Jimp.read(bannerURL, (err, image) => {
-                                if (err) throw err;
-                                image
-                                    .crop(0,0,450,250)
-                                    .write(`../../cache/banners/${mapsetID}.jpg`);
-                            });
+                        //    let bannerURL = `https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`;
+                        //    Jimp.read(bannerURL, (err, image) => {
+                        //        if (err) throw err;
+                        //        image
+                        //            .crop(0,0,450,250)
+                        //            .write(`../../cache/banners/${mapsetID}.jpg`);
+                        //    });
 
-                            let image = `../../cache/banners/${mapsetID}.jpg`;
-                            embed.setThumbnail(`attachment://${mapsetID}.jpg`)
-                        }
+                        //    let image = `../../cache/banners/${mapsetID}.jpg`;
+                        //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
+                        //}
 
                         let stats = {
                             "**Rating**": Math.round(body1.scores[0].performance_rating * 100) / 100,
@@ -89,6 +89,7 @@ module.exports = class recent extends Command {
                         embed.setTitle(`${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`)
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
+                        embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
