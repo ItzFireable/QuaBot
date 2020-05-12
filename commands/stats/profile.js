@@ -35,7 +35,7 @@ module.exports = class profile extends Command {
     request.get("https://api.quavergame.com/v1/users/full/" + linkname, {json:true}, (error, response, body) => {
       if (!error && body.status == 200) {
 				var name = username.replace(/%20/g, ' ');
-				var name = username.replace(/_/g, ' ');
+				name = username.replace(/_/g, ' ');
 				let embed = new RichEmbed()
 		    embed.setColor(0x44e8ff)
 				if (keysmode == 1) {
