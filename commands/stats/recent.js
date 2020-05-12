@@ -46,18 +46,18 @@ module.exports = class recent extends Command {
                 request.get(url, { json: true }, (error, response, body) => {
                     if (!error && body.status == 200) {
 
-                        let stats = {
-                            "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
-                            "Ranked Score": keymodeObject.stats.ranked_score,
-                            "Total Score": keymodeObject.stats.total_score,
-                            "Accuracy": Math.round(keymodeObject.stats.overall_accuracy * 100) / 100,
-                            "Play Count": keymodeObject.stats.play_count,
-                            "Max Combo": keymodeObject.stats.max_combo
-                        };
+                        //let stats = {
+                        //    "Overall Rating": Math.round(keymodeObject.stats.overall_performance_rating * 100) / 100,
+                        //    "Ranked Score": keymodeObject.stats.ranked_score,
+                        //    "Total Score": keymodeObject.stats.total_score,
+                        //    "Accuracy": Math.round(keymodeObject.stats.overall_accuracy * 100) / 100,
+                        //    "Play Count": keymodeObject.stats.play_count,
+                        //    "Max Combo": keymodeObject.stats.max_combo
+                        //};
         
-                        let statisticsString = "";
-                        for (const key in stats)
-                            statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
+                        //let statisticsString = "";
+                        //for (const key in stats)
+                        //    statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
         
                         //embed.addField("Statistics", statisticsString.trim());
                         console.log(statisticsString.trim())
