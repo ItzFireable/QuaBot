@@ -1,6 +1,6 @@
 const { Command } = require("discord.js-commando");
 const { RichEmbed,MessageAttachment } = require("discord.js");
-const { countryFlagEmoji } = require("country-flag-emoji");
+const countryFlagEmoji = require("country-flag-emoji");
 const request = require("request");
 const moment = require('moment');
 const Jimp = require('jimp');
