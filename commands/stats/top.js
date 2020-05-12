@@ -60,7 +60,7 @@ module.exports = class topplays extends Command {
 
                 request.get(latest, { json: true }, (error1, response1, body1) => {
 
-                    if (!error1 && body1.status == 200) {
+                    if (!error1 && body1.status == 200 && body1.scores[0].map != "undefined") {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
                         //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
@@ -107,6 +107,19 @@ module.exports = class topplays extends Command {
                         embed.setTimestamp()
                         //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
+                        message.channel.send(embed)
+
+                    } else if (!error1 && body1.status == 200 && body1.scores[0].map != "undefined") {
+                        
+                        let embed = new RichEmbed()
+                        embed.setColor(0x44e8ff)
+                        embed.setAuthor("Top plays for " + name)
+                        embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
+                        embed.setDescription("No top plays!")
+                        embed.addField("Statistics", "No data can be shown!")
+                        embed.setTimestamp()
+                        embed.setFooter("https://quavergame.com")
+
                         message.channel.send(embed)
 
                     } else if (!error && body1.status == 404) {

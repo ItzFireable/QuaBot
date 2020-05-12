@@ -98,6 +98,19 @@ module.exports = class recent extends Command {
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
+                    } else if (!error1 && body1.status == 200 && body1.scores[0].map != "undefined") {
+                        
+                        let embed = new RichEmbed()
+                        embed.setColor(0x44e8ff)
+                        embed.setAuthor("Recent plays for " + name)
+                        embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
+                        embed.setDescription("No recent plays!")
+                        embed.addField("Statistics", "No data can be shown!")
+                        embed.setTimestamp()
+                        embed.setFooter("https://quavergame.com")
+
+                        message.channel.send(embed)
+
                     } else if (!error && body1.status == 404) {
 
                         let embed = new RichEmbed()
