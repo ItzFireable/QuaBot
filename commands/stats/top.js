@@ -109,8 +109,8 @@ module.exports = class topplays extends Command {
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
-                    } else if (!error1 && body1.status == 200 && body1.scores[0].map != "undefined") {
-                        
+                    } else if (!error1 && body1.status == 200 && body1.scores[0] != "undefined") {
+
                         let embed = new RichEmbed()
                         embed.setColor(0x44e8ff)
                         embed.setAuthor("Top plays for " + name)
