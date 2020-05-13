@@ -85,7 +85,6 @@ module.exports = class recent extends Command {
                         let Frank = "<:gradef:710045497288687696>";
                         
                         let stats = {
-                            "": `**[${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[0].map.id})** +**${body1.scores[0].mods_string}**`,
                             "**Score ▸ **": `${body1.scores[0].grade + "rank"} **${Math.round(body1.scores[0].accuracy * 100) / 100}**% | **${Math.round(body1.scores[0].performance_rating * 100) / 100}** QP`,
                             "**Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
                             "**Set ▸ **": since
@@ -105,7 +104,7 @@ module.exports = class recent extends Command {
         
                         embed.addField("Statistics", statisticsString.trim());
 
-                        embed.setTitle(`${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})`)
+                        embed.setTitle(`**[${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[0].map.id})** +**${body1.scores[0].mods_string}**`)
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
                         embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
