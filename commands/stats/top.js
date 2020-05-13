@@ -87,14 +87,14 @@ module.exports = class topscores extends Command {
                         //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         //}
 
-                        let Xrank = "<:gradex:709867866966720603>";
-                        let SSrank = "<:gradess:709867642764132393>";
-                        let Srank = "<:grades:709867608119443526>";
-                        let Arank = "<:gradea:709867725048250478>";
-                        let Brank = "<:gradeb:709867735718559845>";
-                        let Crank = "<:gradec:709867745948336232>";
-                        let Drank = "<:graded:709867756614451261>";
-                        let Frank = "<:gradef:709867766521528403>";
+                        let Xrank = "<:gradex:710045519975809084>";
+                        let SSrank = "<:gradess:710045511729807420>";
+                        let Srank = "<:grades:710045503915819039>";
+                        let Arank = "<:gradea:710045442968256582>";
+                        let Brank = "<:gradeb:710045471095128126>";
+                        let Crank = "<:gradec:710045478271844352>";
+                        let Drank = "<:graded:710045488547889202>";
+                        let Frank = "<:gradef:710045497288687696>";
 
                         for(let i = 0; i < body1.scores.length; i++) {
 
@@ -103,7 +103,7 @@ module.exports = class topscores extends Command {
                             let since = moment(date).fromNow();
 
                             let stats = {
-                                "": `**${body1.scores[i].map.artist} - ${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name}) + ${body1.scores[i].mods_string}**`,
+                                "": `**[${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[i].map.id})[${body1.scores[i].map.id}] +${body1.scores[i].mods_string}**`,
                                 "** Score ▸ **": `${body1.scores[i].grade + "rank"} ${Math.round(body1.scores[i].accuracy * 100) / 100}% / ${Math.round(body1.scores[i].performance_rating * 100) / 100} QP`,
                                 "** Info ▸ **": `${body1.scores[i].total_score} - x${body1.scores[i].max_combo} - [${body1.scores[i].count_marv}/${body1.scores[i].count_perf}/${body1.scores[i].count_great}/${body1.scores[i].count_good}/${body1.scores[i].count_okay}/${body1.scores[i].count_miss}]`,
                                 "** Score set ▸ **": `${since}`,
