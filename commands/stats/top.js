@@ -126,7 +126,8 @@ module.exports = class topscores extends Command {
                         }
 
                         //embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
-                        embed.setTitle(`[(${emojiFlags.countryCode(body.user.info.country).emoji} ${keymodeString}) ${name}'s top scores](https://quavergame.com/profile/${body.user.info.id}?mode=${keysmode}))`);
+                        embed.setTitle(`(${emojiFlags.countryCode(body.user.info.country).emoji} ${keymodeString}) ${name}'s top scores`);
+                        embed.setURL(`https://quavergame.com/profile/${body.user.info.id}?mode=${keysmode}`);
                         //embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
                         embed.setTimestamp()
                         //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
