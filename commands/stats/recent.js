@@ -104,7 +104,8 @@ module.exports = class recent extends Command {
         
                         embed.addField("Statistics", statisticsString.trim());
 
-                        embed.setTitle(`**[${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[0].map.id})** +**${body1.scores[0].mods_string}**`)
+                        embed.setTitle(`**${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})]** +**${body1.scores[0].mods_string}**`)
+                        embed.setURL(`https://quavergame.com/mapsets/map/${body1.scores[0].map.id}`)
                         embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
                         embed.setTimestamp()
                         embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
