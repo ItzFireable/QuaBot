@@ -35,6 +35,22 @@ module.exports = class recent extends Command {
 
         request.get(url, { json: true }, (error, response, body) => {
 
+            let name = username.replace(/%20/g, " ").replace(/_/g, " ");
+                let keymodeObject = null;
+                let keymodeString = "";
+
+                switch (keysmode) {
+                    case 1:
+                        keymodeObject = body.user.keys4;
+                        keymodeString = "4K";
+                        break;
+                    case 2:
+                        keymodeObject = body.user.keys7;
+                        keymodeString = "7K";
+                    default:
+                        break;
+                }
+
             if (!error && body.status == 200) {
                 
                 let embed = new RichEmbed()
