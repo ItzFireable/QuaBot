@@ -96,7 +96,7 @@ module.exports = class topscores extends Command {
 
                         for(let i = 0; i < body1.scores.length; i++) {
 
-                            let obj = json[i];
+                            let obj = body1.scores[i];
                             let date = new Date(body1.scores[i].time);
                             let since = moment(date).fromNow();
 
