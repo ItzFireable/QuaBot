@@ -93,7 +93,6 @@ module.exports = class recent extends Command {
                         let statisticsString = "";
                         for (const key in stats)
                             statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
-                            statisticsString += `${key} ${stats[key].toLocaleString()}\n`;
                             statisticsString = statisticsString.replace("Xrank",Xrank);
                             statisticsString = statisticsString.replace("SSrank",SSrank);
                             statisticsString = statisticsString.replace("Srank",Srank);
