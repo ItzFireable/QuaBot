@@ -55,7 +55,7 @@ module.exports = class recent extends Command {
                 
                 let embed = new RichEmbed()
 
-                embed.setColor(0x44e8ff)
+                embed.setColor(0x00B0F4)
                 embed.setAuthor("Recent score for " + name)
 
                 let id = body.user.info.id;
