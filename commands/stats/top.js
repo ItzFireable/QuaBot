@@ -40,7 +40,7 @@ module.exports = class topscores extends Command {
             if (!error && body.status == 200) {
                 
                 let embed = new RichEmbed()
-                embed.setColor(0x0495ff)
+                embed.setColor(0x00B0F4)
 
                 let keymodeObject = null;
                 let keymodeString = "";
@@ -143,7 +143,7 @@ module.exports = class topscores extends Command {
                     } else if (!error1 && body1.status == 200 && body1.scores[0] == undefined) {
 
                         let embed = new RichEmbed()
-                        embed.setColor(0x0495ff)
+                        embed.setColor(0x00B0F4)
                         embed.setAuthor("Top plays for " + name)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("No top plays!")
@@ -156,7 +156,7 @@ module.exports = class topscores extends Command {
                     } else if (!error && body1.status == 404) {
 
                         let embed = new RichEmbed()
-                        embed.setColor(0x0495ff)
+                        embed.setColor(0x00B0F4)
                         embed.setAuthor("Top plays for " + name)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("An error occurred getting the score.")
@@ -177,7 +177,7 @@ module.exports = class topscores extends Command {
             } else if (!error && body.status == 404) {
 
                 let embed = new RichEmbed()
-                embed.setColor(0x0495ff)
+                embed.setColor(0x00B0F4)
                 embed.setAuthor("Top plays for " + name)
                 embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                 embed.setDescription("This user does not exist!")

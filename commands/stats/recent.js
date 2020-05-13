@@ -75,14 +75,14 @@ module.exports = class recent extends Command {
                         let date = new Date(body1.scores[0].time);
                         let since = moment(date).fromNow()
 
-                        let Xrank = "<:gradex:709867866966720603>";
-                        let SSrank = "<:gradess:709867642764132393>";
-                        let Srank = "<:grades:709867608119443526>";
-                        let Arank = "<:gradea:709867725048250478>";
-                        let Brank = "<:gradeb:709867735718559845>";
-                        let Crank = "<:gradec:709867745948336232>";
-                        let Drank = "<:graded:709867756614451261>";
-                        let Frank = "<:gradef:709867766521528403>";
+                        let Xrank = "<:gradex:710045519975809084>";
+                        let SSrank = "<:gradess:710045511729807420>";
+                        let Srank = "<:grades:710045503915819039>";
+                        let Arank = "<:gradea:710045442968256582>";
+                        let Brank = "<:gradeb:710045471095128126>";
+                        let Crank = "<:gradec:710045478271844352>";
+                        let Drank = "<:graded:710045488547889202>";
+                        let Frank = "<:gradef:710045497288687696>";
                         
                         let stats = {
                             "** Score ▸ **": `${body1.scores[0].grade + "rank"} ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
@@ -114,7 +114,7 @@ module.exports = class recent extends Command {
                     } else if (!error1 && body1.status == 200 && body1.scores[0] == undefined) {
                         
                         let embed = new RichEmbed()
-                        embed.setColor(0x44e8ff)
+                        embed.setColor(0x00B0F4)
                         embed.setAuthor("Recent plays for " + name)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("No recent plays!")
@@ -127,7 +127,7 @@ module.exports = class recent extends Command {
                     } else if (!error && body1.status == 404) {
 
                         let embed = new RichEmbed()
-                        embed.setColor(0x44e8ff)
+                        embed.setColor(0x00B0F4)
                         embed.setAuthor("Recent score for " + name)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("An error occurred getting the score.")
@@ -148,7 +148,7 @@ module.exports = class recent extends Command {
             } else if (!error && body.status == 404) {
 
                 let embed = new RichEmbed()
-                embed.setColor(0x44e8ff)
+                embed.setColor(0x00B0F4)
                 embed.setAuthor("Recent score for " + name)
                 embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                 embed.setDescription("This user does not exist!")

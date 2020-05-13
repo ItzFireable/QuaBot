@@ -69,7 +69,7 @@ module.exports = class profile extends Command {
                 else
                     embed.setThumbnail("https://i.imgur.com/mYYW5EO.png");
 
-                embed.setColor(0x44e8ff);
+                embed.setColor(0x00B0F4);
                 embed.setTitle("Global: #" + keymodeObject.globalRank);
                 embed.setAuthor(`Stats for ${name} (${keymodeString})`);
                 embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
@@ -82,7 +82,7 @@ module.exports = class profile extends Command {
 
                 let name = username.replace(/%20/g, " ");
                 let embed = new RichEmbed()
-                embed.setColor(0x44e8ff)
+                embed.setColor(0x00B0F4)
                 embed.setAuthor("Stats for " + name)
                 embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                 embed.setDescription("This user does not exist!")
