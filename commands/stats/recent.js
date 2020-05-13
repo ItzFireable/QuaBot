@@ -28,6 +28,7 @@ module.exports = class recent extends Command {
                     key: "recentnum",
                     prompt: "What is this other useless thing?",
                     type: "integer",
+                    max: 10,
                     default: 1,
                 },
             ]
