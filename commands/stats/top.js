@@ -98,8 +98,8 @@ module.exports = class topscores extends Command {
 
                         for(let i = 0; i < body1.scores.length; i++) {
 
-                            if (body.scores[i].mods_string == "") {
-                                body.scores[i].mods_string == "Nomod"
+                            if (body1.scores[i].mods_string == "") {
+                                body1.scores[i].mods_string == "Nomod"
                             }
 
                             let obj = body1.scores[i];
