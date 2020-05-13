@@ -103,10 +103,10 @@ module.exports = class topscores extends Command {
                             let since = moment(date).fromNow();
 
                             let stats = {
-                                "": `**[${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[i].map.id}) +${body1.scores[i].mods_string}**`,
-                                "** Score ▸ **": `${body1.scores[i].grade + "rank"} ${Math.round(body1.scores[i].accuracy * 100) / 100}% / ${Math.round(body1.scores[i].performance_rating * 100) / 100} QP`,
-                                "** Info ▸ **": `${body1.scores[i].total_score} - x${body1.scores[i].max_combo} - [${body1.scores[i].count_marv}/${body1.scores[i].count_perf}/${body1.scores[i].count_great}/${body1.scores[i].count_good}/${body1.scores[i].count_okay}/${body1.scores[i].count_miss}]`,
-                                "** Score set ▸ **": `${since}`,
+                                "": `**[${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[i].map.id})** +**${body1.scores[i].mods_string}**`,
+                                "": `${body1.scores[i].grade + "rank"} **${Math.round(body1.scores[i].accuracy * 100) / 100}**% | **${Math.round(body1.scores[i].performance_rating * 100) / 100}** QR`,
+                                "": `${body1.scores[i].total_score} - x${body1.scores[i].max_combo} - [${body1.scores[i].count_marv}/${body1.scores[i].count_perf}/${body1.scores[i].count_great}/${body1.scores[i].count_good}/${body1.scores[i].count_okay}/${body1.scores[i].count_miss}]`,
+                                "": `${since}`,
                             };
 
                             let statisticsString = "";
@@ -121,7 +121,7 @@ module.exports = class topscores extends Command {
                                 statisticsString = statisticsString.replace("Drank",Drank);
                                 statisticsString = statisticsString.replace("Frank",Frank);
 
-                                embed.addField(`Play #${i+1}`, statisticsString.trim());
+                                embed.addField(`#${i+1}`, statisticsString.trim());
 
                         }
 
