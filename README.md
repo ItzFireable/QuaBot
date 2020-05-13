@@ -12,7 +12,7 @@ QuaBot is a Discord bot made with JS (ran using node.js) meant to be used with [
 
 * **Profiles** - Get users profile with ;profile username (optional: --4k, --7k).
 
-* **Recent score** - Get users most recent score with ;recent username (optional: --4k, --7k).
+* **Recent score** - Get users most recent score with ;recent username (optional: --4k, --7k) (optional: number 1-10 for recent score 1-10).
 
 * **Top scores** - Get users top scores with ;topscores username (optional: --4k, --7k).
 
