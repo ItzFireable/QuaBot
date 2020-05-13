@@ -3,7 +3,6 @@ const { RichEmbed,MessageAttachment } = require("discord.js");
 const emojiFlags = require('emoji-flags');
 const request = require("request");
 const moment = require('moment');
-const Jimp = require('jimp');
 const fs = require('fs');
 
 module.exports = class topscores extends Command {
