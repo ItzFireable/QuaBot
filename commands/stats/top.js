@@ -85,9 +85,6 @@ module.exports = class topscores extends Command {
                         //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         //}
 
-                        let date1 = new Date(body1.scores[0].time);
-                        let since1 = moment(date1).fromNow()
-                        
                         let Xrank = "<:gradex:709867866966720603>";
                         let SSrank = "<:gradess:709867642764132393>";
                         let Srank = "<:grades:709867608119443526>";
@@ -97,114 +94,35 @@ module.exports = class topscores extends Command {
                         let Drank = "<:graded:709867756614451261>";
                         let Frank = "<:gradef:709867766521528403>";
 
-                        let stats1 = {
-                            "** **": `**${body1.scores[0].map.artist} - ${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})**`,
-                            "** Score▸ **": `${body1.scores[0].grade + "rank"} ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
-                            "** Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
-                            "** Score set ▸ **": `${since1}`,
-                        };
+                        for(let i = 0; i < body1.scores.length; i++) {
 
-                        let date2 = new Date(body1.scores[1].time);
-                        let since2 = moment(date2).fromNow()
+                            let obj = json[i];
+                            let date = new Date(body1.scores[i].time);
+                            let since = moment(date).fromNow();
 
-                        let stats2 = {
-                            "** **": `**${body1.scores[1].map.artist} - ${body1.scores[1].map.title} (${body1.scores[1].map.difficulty_name})**`,
-                            "** Score ▸ **": `${body1.scores[1].grade + "rank"} ${Math.round(body1.scores[1].accuracy * 100) / 100}% / ${Math.round(body1.scores[1].performance_rating * 100) / 100} QP`,
-                            "** Info ▸ **": `${body1.scores[1].total_score} - x${body1.scores[1].max_combo} - [${body1.scores[1].count_marv}/${body1.scores[1].count_perf}/${body1.scores[1].count_great}/${body1.scores[1].count_good}/${body1.scores[1].count_okay}/${body1.scores[1].count_miss}]`,
-                            "** Score set ▸ **": `${since2}`,
-                        };
+                            let stats = {
+                                "": `**${body1.scores[i].map.artist} - ${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})**`,
+                                "** Score ▸ **": `${body1.scores[i].grade + "rank"} ${Math.round(body1.scores[i].accuracy * 100) / 100}% / ${Math.round(body1.scores[i].performance_rating * 100) / 100} QP`,
+                                "** Info ▸ **": `${body1.scores[i].total_score} - x${body1.scores[i].max_combo} - [${body1.scores[i].count_marv}/${body1.scores[i].count_perf}/${body1.scores[i].count_great}/${body1.scores[i].count_good}/${body1.scores[i].count_okay}/${body1.scores[i].count_miss}]`,
+                                "** Score set ▸ **": `${since}`,
+                            };
 
-                        let date3 = new Date(body1.scores[2].time);
-                        let since3 = moment(date3).fromNow()
+                            let statisticsString = "";
+                            for (const key in stats1)
+                                statisticsString += `${key} ${stats1[key].toLocaleString()}\n`;
+                                statisticsString = statisticsString.replace("Xrank",Xrank);
+                                statisticsString = statisticsString.replace("SSrank",SSrank);
+                                statisticsString = statisticsString.replace("Srank",Srank);
+                                statisticsString = statisticsString.replace("Arank",Arank);
+                                statisticsString = statisticsString.replace("Brank",Brank);
+                                statisticsString = statisticsString.replace("Crank",Crank);
+                                statisticsString = statisticsString.replace("Drank",Drank);
+                                statisticsString = statisticsString.replace("Frank",Frank);
 
-                        let stats3 = {
-                            "** **": `**${body1.scores[2].map.artist} - ${body1.scores[2].map.title} (${body1.scores[2].map.difficulty_name})**`,
-                            "** Score ▸ **": `${body1.scores[2].grade + "rank"} ${Math.round(body1.scores[2].accuracy * 100) / 100}% / ${Math.round(body1.scores[2].performance_rating * 100) / 100} QP`,
-                            "** Info ▸ **": `${body1.scores[2].total_score} - x${body1.scores[2].max_combo} - [${body1.scores[2].count_marv}/${body1.scores[2].count_perf}/${body1.scores[2].count_great}/${body1.scores[2].count_good}/${body1.scores[2].count_okay}/${body1.scores[2].count_miss}]`,
-                            "** Score set ▸ **": `${since3}`,
-                        };
+                                embed.addField(`Play #${i+1}`, statisticsString.trim());
 
-                        let date4 = new Date(body1.scores[3].time);
-                        let since4 = moment(date4).fromNow()
-
-                        let stats4 = {
-                            "** **": `**${body1.scores[3].map.artist} - ${body1.scores[3].map.title} (${body1.scores[3].map.difficulty_name})**`,
-                            "** Score ▸ **": `${body1.scores[3].grade + "rank"} ${Math.round(body1.scores[3].accuracy * 100) / 100}% / ${Math.round(body1.scores[3].performance_rating * 100) / 100} QP`,
-                            "** Info ▸ **": `${body1.scores[3].total_score} - x${body1.scores[3].max_combo} - [${body1.scores[3].count_marv}/${body1.scores[3].count_perf}/${body1.scores[3].count_great}/${body1.scores[3].count_good}/${body1.scores[3].count_okay}/${body1.scores[3].count_miss}]`,
-                            "** Score set ▸ **": `${since4}`,
-                        };
-
-                        let date5 = new Date(body1.scores[4].time);
-                        let since5 = moment(date5).fromNow()
-
-                        let stats5 = {
-                            "** **": `**${body1.scores[4].map.artist} - ${body1.scores[4].map.title} (${body1.scores[4].map.difficulty_name})**`,
-                            "** Score ▸ **": `${body1.scores[4].grade + "rank"} ${Math.round(body1.scores[4].accuracy * 100) / 100}% / ${Math.round(body1.scores[4].performance_rating * 100) / 100} QP`,
-                            "** Info ▸ **": `${body1.scores[4].total_score} - x${body1.scores[4].max_combo} - [${body1.scores[4].count_marv}/${body1.scores[4].count_perf}/${body1.scores[4].count_great}/${body1.scores[4].count_good}/${body1.scores[4].count_okay}/${body1.scores[4].count_miss}]`,
-                            "** Score set ▸ **": `${since5}`,
-                        };
-        
-                        let statisticsString1 = "";
-                        for (const key in stats1)
-                            statisticsString1 += `${key} ${stats1[key].toLocaleString()}\n`;
-                            statisticsString1 = statisticsString1.replace("Xrank",Xrank);
-                            statisticsString1 = statisticsString1.replace("SSrank",SSrank);
-                            statisticsString1 = statisticsString1.replace("Srank",Srank);
-                            statisticsString1 = statisticsString1.replace("Arank",Arank);
-                            statisticsString1 = statisticsString1.replace("Brank",Brank);
-                            statisticsString1 = statisticsString1.replace("Crank",Crank);
-                            statisticsString1 = statisticsString1.replace("Drank",Drank);
-                            statisticsString1 = statisticsString1.replace("Frank",Frank);
-                        let statisticsString2 = "";
-                        for (const key in stats2)
-                            statisticsString2 += `${key} ${stats2[key].toLocaleString()}\n`;
-                            statisticsString2 = statisticsString2.replace("Xrank",Xrank);
-                            statisticsString2 = statisticsString2.replace("SSrank",SSrank);
-                            statisticsString2 = statisticsString2.replace("Srank",Srank);
-                            statisticsString2 = statisticsString2.replace("Arank",Arank);
-                            statisticsString2 = statisticsString2.replace("Brank",Brank);
-                            statisticsString2 = statisticsString2.replace("Crank",Crank);
-                            statisticsString2 = statisticsString2.replace("Drank",Drank);
-                            statisticsString2 = statisticsString2.replace("Frank",Frank);
-                        let statisticsString3 = "";
-                        for (const key in stats3)
-                            statisticsString3 += `${key} ${stats3[key].toLocaleString()}\n`;
-                            statisticsString3 = statisticsString3.replace("Xrank",Xrank);
-                            statisticsString3 = statisticsString3.replace("SSrank",SSrank);
-                            statisticsString3 = statisticsString3.replace("Srank",Srank);
-                            statisticsString3 = statisticsString3.replace("Arank",Arank);
-                            statisticsString3 = statisticsString3.replace("Brank",Brank);
-                            statisticsString3 = statisticsString3.replace("Crank",Crank);
-                            statisticsString3 = statisticsString3.replace("Drank",Drank);
-                            statisticsString3 = statisticsString3.replace("Frank",Frank);
-                        let statisticsString4 = "";
-                        for (const key in stats4)
-                            statisticsString4 += `${key} ${stats4[key].toLocaleString()}\n`;
-                            statisticsString4 = statisticsString4.replace("Xrank",Xrank);
-                            statisticsString4 = statisticsString4.replace("SSrank",SSrank);
-                            statisticsString4 = statisticsString4.replace("Srank",Srank);
-                            statisticsString4 = statisticsString4.replace("Arank",Arank);
-                            statisticsString4 = statisticsString4.replace("Brank",Brank);
-                            statisticsString4 = statisticsString4.replace("Crank",Crank);
-                            statisticsString4 = statisticsString4.replace("Drank",Drank);
-                            statisticsString4 = statisticsString4.replace("Frank",Frank);
-                        let statisticsString5 = "";
-                        for (const key in stats5)
-                            statisticsString5 += `${key} ${stats5[key].toLocaleString()}\n`;
-                            statisticsString5 = statisticsString5.replace("Xrank",Xrank);
-                            statisticsString5 = statisticsString5.replace("SSrank",SSrank);
-                            statisticsString5 = statisticsString5.replace("Srank",Srank);
-                            statisticsString5 = statisticsString5.replace("Arank",Arank);
-                            statisticsString5 = statisticsString5.replace("Brank",Brank);
-                            statisticsString5 = statisticsString5.replace("Crank",Crank);
-                            statisticsString5 = statisticsString5.replace("Drank",Drank);
-                            statisticsString5 = statisticsString5.replace("Frank",Frank);
-        
-                        embed.addField("Play #1", statisticsString1.trim());
-                        embed.addField("Play #2", statisticsString2.trim());
-                        embed.addField("Play #3", statisticsString3.trim());
-                        embed.addField("Play #4", statisticsString4.trim());
-                        embed.addField("Play #5", statisticsString5.trim());
+                            console.log(obj.id);
+                        }
 
                         embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
                         embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
