@@ -109,7 +109,7 @@ module.exports = class topscores extends Command {
 
                             let statisticsString = "";
                             for (const key in stats1)
-                                statisticsString += `${key} ${stats1[key].toLocaleString()}\n`;
+                                statisticsString += `${key} ${stats[key].toLocaleString()}\n`;
                                 statisticsString = statisticsString.replace("Xrank",Xrank);
                                 statisticsString = statisticsString.replace("SSrank",SSrank);
                                 statisticsString = statisticsString.replace("Srank",Srank);
