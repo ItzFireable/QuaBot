@@ -130,7 +130,7 @@ module.exports = class topscores extends Command {
                         }
 
                         //embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
-                        embed.setTitle(`${emojiFlags.countryCode(body.user.info.country).emoji} ${name}'s top scores (${keymodeString})`);
+                        embed.setTitle(`${emojiFlags.countryCode(body.user.info.country).emoji}  ${name}'s top scores (${keymodeString})`);
                         embed.setURL(`https://quavergame.com/profile/${body.user.info.id}?mode=${keysmode}`);
                         //embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
                         embed.setTimestamp()

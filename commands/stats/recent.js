@@ -85,9 +85,10 @@ module.exports = class recent extends Command {
                         let Frank = "<:gradef:710045497288687696>";
                         
                         let stats = {
-                            "** Score ▸ **": `${body1.scores[0].grade + "rank"} ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
-                            "** Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
-                            "** Score set ▸ **": since
+                            "": `**[${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[i].map.id})** +**${body1.scores[i].mods_string}**`,
+                            "**Score ▸ **": `${body1.scores[0].grade + "rank"} **${Math.round(body1.scores[0].accuracy * 100) / 100}**% | **${Math.round(body1.scores[0].performance_rating * 100) / 100}** QP`,
+                            "**Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
+                            "**Set ▸ **": since
                         };
         
                         let statisticsString = "";
@@ -115,7 +116,7 @@ module.exports = class recent extends Command {
                         
                         let embed = new RichEmbed()
                         embed.setColor(0x00B0F4)
-                        embed.setAuthor("Recent plays for " + name)
+                        embed.setAuthor(`${name}'s most recent score (${keymodeString})`)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("No recent plays!")
                         embed.addField("Statistics", "No data can be shown!")
@@ -128,7 +129,7 @@ module.exports = class recent extends Command {
 
                         let embed = new RichEmbed()
                         embed.setColor(0x00B0F4)
-                        embed.setAuthor("Recent score for " + name)
+                        embed.setAuthor(`${name}'s top scores (${keymodeString})`)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("An error occurred getting the score.")
                         embed.addField("Statistics", "No data can be shown!")
