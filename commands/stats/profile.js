@@ -1,6 +1,7 @@
 const { Command } = require("discord.js-commando");
 const { RichEmbed } = require("discord.js");
 const request = require("request");
+const emojiFlags = require('emoji-flags');
 
 module.exports = class profile extends Command {
     constructor(client) {
@@ -71,7 +72,7 @@ module.exports = class profile extends Command {
                 embed.setColor(0x44e8ff);
                 embed.setTitle("Global: #" + keymodeObject.globalRank);
                 embed.setAuthor(`Stats for ${name} (${keymodeString})`);
-                embed.setDescription("Country Ranking: #" + keymodeObject.countryRank);
+                embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
                 embed.addField("Statistics", statisticsString.trim());
                 embed.setTimestamp();
                 embed.setFooter("https://quavergame.com");
