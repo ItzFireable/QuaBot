@@ -108,7 +108,7 @@ module.exports = class topscores extends Command {
 
                             let stats = {
                                 "": `**[${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})](https://quavergame.com/mapsets/map/${body1.scores[i].map.id})** +**${body1.scores[i].mods_string}**`,
-                                "**Score ▸ **": `${body1.scores[i].grade + "rank"} **${Math.round(body1.scores[i].accuracy * 100) / 100}**% | **${Math.round(body1.scores[i].performance_rating * 100) / 100}** QR`,
+                                "**Score ▸ **": `${body1.scores[i].grade + "rank"} **${Math.round(body1.scores[i].accuracy * 100) / 100}**% | **${Math.round(body1.scores[i].performance_rating * 100) / 100}** qr`,
                                 "**Info ▸ **": `${body1.scores[i].total_score} - x${body1.scores[i].max_combo} - [${body1.scores[i].count_marv}/${body1.scores[i].count_perf}/${body1.scores[i].count_great}/${body1.scores[i].count_good}/${body1.scores[i].count_okay}/${body1.scores[i].count_miss}]`,
                                 "**Set ▸ **": `${since}`,
                             };

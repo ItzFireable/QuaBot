@@ -101,7 +101,7 @@ module.exports = class recent extends Command {
                         let Frank = "<:gradef:710045497288687696>";
                         
                         let stats = {
-                            "**Score ▸ **": `${body1.scores[0].grade + "rank"} **${Math.round(body1.scores[0].accuracy * 100) / 100}**% | **${Math.round(body1.scores[0].performance_rating * 100) / 100}** QP`,
+                            "**Score ▸ **": `${body1.scores[0].grade + "rank"} **${Math.round(body1.scores[0].accuracy * 100) / 100}**% | **${Math.round(body1.scores[0].performance_rating * 100) / 100}** qr`,
                             "**Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
                             "**Mods ▸ **": `**${body1.scores[0].mods_string}**`,
                             "**Set ▸ **": since
