@@ -40,7 +40,7 @@ module.exports = class topscores extends Command {
             if (!error && body.status == 200) {
                 
                 let embed = new RichEmbed()
-                embed.setColor(0x44e8ff)
+                embed.setColor(0x0495ff)
 
                 let keymodeObject = null;
                 let keymodeString = "";
