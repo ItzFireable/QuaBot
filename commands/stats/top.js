@@ -125,9 +125,9 @@ module.exports = class topscores extends Command {
 
                         }
 
-                        embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
-                        embed.setAuthor(`Top plays for ${name} (${keymodeString})`);
-                        embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
+                        //embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
+                        embed.setAuthor(`[[${emojiFlags.countryCode(body.user.info.country).emoji} ${keymodeString}] ${name}'s top scores](https://quavergame.com/profile/${body.user.info.id}?mode=${keysmode})`);
+                        //embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
                         embed.setTimestamp()
                         //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
@@ -142,7 +142,7 @@ module.exports = class topscores extends Command {
                     } else if (!error1 && body1.status == 200 && body1.scores[0] == undefined) {
 
                         let embed = new RichEmbed()
-                        embed.setColor(0x44e8ff)
+                        embed.setColor(0x0495ff)
                         embed.setAuthor("Top plays for " + name)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("No top plays!")
@@ -155,7 +155,7 @@ module.exports = class topscores extends Command {
                     } else if (!error && body1.status == 404) {
 
                         let embed = new RichEmbed()
-                        embed.setColor(0x44e8ff)
+                        embed.setColor(0x0495ff)
                         embed.setAuthor("Top plays for " + name)
                         embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                         embed.setDescription("An error occurred getting the score.")
@@ -176,7 +176,7 @@ module.exports = class topscores extends Command {
             } else if (!error && body.status == 404) {
 
                 let embed = new RichEmbed()
-                embed.setColor(0x44e8ff)
+                embed.setColor(0x0495ff)
                 embed.setAuthor("Top plays for " + name)
                 embed.setThumbnail("https://i.imgur.com/mYYW5EO.png")
                 embed.setDescription("This user does not exist!")
