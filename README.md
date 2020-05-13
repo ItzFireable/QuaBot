@@ -4,7 +4,7 @@
 
 ## About 
 
-QuaBot is a Discord bot made with JS (ran using node.js) meant to be used with [Quaver, the ultimate community-driven, and open-source competitive rhythm game.]https://github.com/Quaver/Quaver
+QuaBot is a Discord bot made with JS (ran using node.js) meant to be used with [Quaver, the ultimate community-driven, and open-source competitive rhythm game.](https://github.com/Quaver/Quaver)
 
 ## Status
 
