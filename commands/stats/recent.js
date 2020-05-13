@@ -24,10 +24,16 @@ module.exports = class recent extends Command {
                     type: "string",
                     default: "--4k",
                 },
+                {
+                    key: "recentnum",
+                    prompt: "What is this other useless thing?",
+                    type: "integer",
+                    default: 1,
+                },
             ]
         });
     }
-    run(message, { username, keymode }) {
+    run(message, { username, keymode, recentnum }) {
 
         let keysmode = keymode == "--7k" ? 2 : 1;
         let name = username.replace(/%20/g, " ");
@@ -59,13 +65,14 @@ module.exports = class recent extends Command {
                 embed.setAuthor("Recent score for " + name)
 
                 let id = body.user.info.id;
-                let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=1";
+                let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=" + recentnum;
+                let num = recentnum - 1 
 
                 request.get(latest, { json: true }, (error1, response1, body1) => {
 
-                    if (!error1 && body1.status == 200 && body1.scores[0] != undefined) {
+                    if (!error1 && body1.status == 200 && body1.scores[num] != undefined) {
 
-                        let mapsetID = body1.scores[0].map.mapset_id;
+                        let mapsetID = body1.scores[num].map.mapset_id;
 
                         //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
 
@@ -88,7 +95,7 @@ module.exports = class recent extends Command {
                         //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
                         //}
 
-                        let date = new Date(body1.scores[0].time);
+                        let date = new Date(body1.scores[num].time);
                         let since = moment(date).fromNow()
 
                         let Xrank = "<:gradex:710045519975809084>";
@@ -101,9 +108,9 @@ module.exports = class recent extends Command {
                         let Frank = "<:gradef:710045497288687696>";
                         
                         let stats = {
-                            "**Score ▸ **": `${body1.scores[0].grade + "rank"} **${Math.round(body1.scores[0].accuracy * 100) / 100}**% | **${Math.round(body1.scores[0].performance_rating * 100) / 100}** qr`,
-                            "**Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
-                            "**Mods ▸ **": `**${body1.scores[0].mods_string}**`,
+                            "**Score ▸ **": `${body1.scores[num].grade + "rank"} **${Math.round(body1.scores[num].accuracy * 100) / 100}**% | **${Math.round(body1.scores[num].performance_rating * 100) / 100}** qr`,
+                            "**Info ▸ **": `${body1.scores[num].total_score} - x${body1.scores[num].max_combo} - [${body1.scores[num].count_marv}/${body1.scores[num].count_perf}/${body1.scores[num].count_great}/${body1.scores[num].count_good}/${body1.scores[num].count_okay}/${body1.scores[num].count_miss}]`,
+                            "**Mods ▸ **": `**${body1.scores[num].mods_string}**`,
                             "**Set ▸ **": since
                         };
         
@@ -121,15 +128,15 @@ module.exports = class recent extends Command {
         
                         embed.addField("Statistics", statisticsString.trim());
 
-                        embed.setTitle(`**${body1.scores[0].map.title} (${body1.scores[0].map.difficulty_name})**`)
-                        embed.setURL(`https://quavergame.com/mapsets/map/${body1.scores[0].map.id}`)
-                        embed.setDescription("Mapped by " + body1.scores[0].map.creator_username)
+                        embed.setTitle(`**${body1.scores[num].map.title} (${body1.scores[num].map.difficulty_name})**`)
+                        embed.setURL(`https://quavergame.com/mapsets/map/${body1.scores[num].map.id}`)
+                        embed.setDescription("Mapped by " + body1.scores[num].map.creator_username)
                         embed.setTimestamp()
                         embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
                         message.channel.send(embed)
 
-                    } else if (!error1 && body1.status == 200 && body1.scores[0] == undefined) {
+                    } else if (!error1 && body1.status == 200 && body1.scores[num] == undefined) {
                         
                         let embed = new RichEmbed()
                         embed.setColor(0x00B0F4)
