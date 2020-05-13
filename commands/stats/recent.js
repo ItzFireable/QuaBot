@@ -50,6 +50,7 @@ module.exports = class recent extends Command {
                     if (!error1 && body1.status == 200 && body1.scores[0] != undefined) {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
+
                         //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
 
                         //if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
@@ -74,20 +75,33 @@ module.exports = class recent extends Command {
                         let date = new Date(body1.scores[0].time);
                         let since = moment(date).fromNow()
 
+                        let Xrank = "<:gradex:709867866966720603>";
+                        let SSrank = "<:gradess:709867642764132393>";
+                        let Srank = "<:grades:709867608119443526>";
+                        let Arank = "<:gradea:709867725048250478>";
+                        let Brank = "<:gradeb:709867735718559845>";
+                        let Crank = "<:gradec:709867745948336232>";
+                        let Drank = "<:graded:709867756614451261>";
+                        let Frank = "<:gradef:709867766521528403>";
+                        
                         let stats = {
-                            "**Rating**": Math.round(body1.scores[0].performance_rating * 100) / 100,
-                            "**Score**": body1.scores[0].total_score,
-                            "**Max Combo**": body1.scores[0].max_combo,
-                            "**Mods**":body1.scores[0].mods_string,
-                            "**Grade**": body1.scores[0].grade,
-                            "**Accuracy**": Math.round(body1.scores[0].accuracy * 100) / 100,
-                            "**Ratio**": Math.round(body1.scores[0].ratio * 10) / 10 + ":1",
-                            "**Score Set**": since
+                            "** Score ▸ **": `${body1.scores[0].grade + "rank"} ${Math.round(body1.scores[0].accuracy * 100) / 100}% / ${Math.round(body1.scores[0].performance_rating * 100) / 100} QP`,
+                            "** Info ▸ **": `${body1.scores[0].total_score} - x${body1.scores[0].max_combo} - [${body1.scores[0].count_marv}/${body1.scores[0].count_perf}/${body1.scores[0].count_great}/${body1.scores[0].count_good}/${body1.scores[0].count_okay}/${body1.scores[0].count_miss}]`,
+                            "** Score set ▸ **": since
                         };
         
                         let statisticsString = "";
                         for (const key in stats)
                             statisticsString += `${key}: ${stats[key].toLocaleString()}\n`;
+                            statisticsString += `${key} ${stats[key].toLocaleString()}\n`;
+                            statisticsString = statisticsString.replace("Xrank",Xrank);
+                            statisticsString = statisticsString.replace("SSrank",SSrank);
+                            statisticsString = statisticsString.replace("Srank",Srank);
+                            statisticsString = statisticsString.replace("Arank",Arank);
+                            statisticsString = statisticsString.replace("Brank",Brank);
+                            statisticsString = statisticsString.replace("Crank",Crank);
+                            statisticsString = statisticsString.replace("Drank",Drank);
+                            statisticsString = statisticsString.replace("Frank",Frank);
         
                         embed.addField("Statistics", statisticsString.trim());
 

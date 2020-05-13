@@ -28,6 +28,7 @@ module.exports = class topscores extends Command {
             ]
         });
     }
+
     run(message, { username, keymode }) {
 
         let keysmode = keymode == "--7k" ? 2 : 1;
@@ -64,6 +65,7 @@ module.exports = class topscores extends Command {
                     if (!error1 && body1.status == 200 && body1.scores[0] != undefined) {
 
                         let mapsetID = body1.scores[0].map.mapset_id;
+
                         //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
 
                         //if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
@@ -101,7 +103,7 @@ module.exports = class topscores extends Command {
                             let since = moment(date).fromNow();
 
                             let stats = {
-                                "": `**${body1.scores[i].map.artist} - ${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})**`,
+                                "": `**${body1.scores[i].map.artist} - ${body1.scores[i].map.title} (${body1.scores[i].map.difficulty_name})** + ${body1.scores[i].mods_string}`,
                                 "** Score ▸ **": `${body1.scores[i].grade + "rank"} ${Math.round(body1.scores[i].accuracy * 100) / 100}% / ${Math.round(body1.scores[i].performance_rating * 100) / 100} QP`,
                                 "** Info ▸ **": `${body1.scores[i].total_score} - x${body1.scores[i].max_combo} - [${body1.scores[i].count_marv}/${body1.scores[i].count_perf}/${body1.scores[i].count_great}/${body1.scores[i].count_good}/${body1.scores[i].count_okay}/${body1.scores[i].count_miss}]`,
                                 "** Score set ▸ **": `${since}`,
@@ -121,7 +123,6 @@ module.exports = class topscores extends Command {
 
                                 embed.addField(`Play #${i+1}`, statisticsString.trim());
 
-                            console.log(obj.id);
                         }
 
                         embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
