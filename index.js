@@ -22,11 +22,9 @@ client.registry
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    bot.user.setStatus('dnd')
     bot.user.setPresence({
         game: {
-            name: 'Quaver',
-            type: 0
+            name: 'Quaver'
         }
     });
 });
