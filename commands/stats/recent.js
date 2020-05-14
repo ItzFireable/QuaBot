@@ -63,7 +63,7 @@ module.exports = class recent extends Command {
                 let embed = new RichEmbed()
 
                 embed.setColor(0x00B0F4)
-                embed.setAuthor("Recent score for " + name)
+                embed.setAuthor(`Recent score for ${name} (${keymodeString})`)
 
                 let id = body.user.info.id;
                 let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=" + recentnum;
@@ -128,7 +128,6 @@ module.exports = class recent extends Command {
                             statisticsString = statisticsString.replace("Frank",Frank);
         
                         embed.addField("Statistics", statisticsString.trim());
-
                         embed.setTitle(`**${body1.scores[num].map.title} (${body1.scores[num].map.difficulty_name})**`)
                         embed.setURL(`https://quavergame.com/mapsets/map/${body1.scores[num].map.id}`)
                         embed.setDescription("Mapped by " + body1.scores[num].map.creator_username)
@@ -147,7 +146,6 @@ module.exports = class recent extends Command {
                         embed.addField("Statistics", "No data can be shown!")
                         embed.setTimestamp()
                         embed.setFooter("https://quavergame.com")
-
                         message.channel.send(embed)
 
                     } else if (!error && body1.status == 404) {
@@ -165,7 +163,7 @@ module.exports = class recent extends Command {
                     } else {
 
                         console.error("Unable to send message.");
-                        console.error(response1);
+                        //console.error(response1);
                         console.error(error1);
 
                     }
@@ -186,7 +184,7 @@ module.exports = class recent extends Command {
             } else {
 
                 console.error("Unable to send message.");
-                console.error(response);
+                //console.error(response);
                 console.error(error);
 
             }

@@ -19,7 +19,7 @@ exports.prompts = {
             "If you're having issues with the game, you can report them on GitHub:",
             QUAVER_REPOSITORY_URL
         ],
-        "mapCommand": [
+        "maps": [
             "You can download pack of all the ranked maps by following this link:",
             ALL_RANKED_MAPS_URL,
             "",
@@ -37,7 +37,6 @@ exports.prompts = {
             "You can also get 'osu! to Quaver' skin converter from the following link:",
             OSU_SKIN_CONVERTER_URL
         ],
-        "offtopic": ["Please keep all non-Quaver discussion in <#470728060354822154>."],
         "login": ["You have to be part of alpha testing group to be able to login."]
     }
 }

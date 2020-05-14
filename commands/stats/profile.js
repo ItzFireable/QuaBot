@@ -9,7 +9,7 @@ module.exports = class profile extends Command {
             name: "profile",
             group: "stats",
             memberName: "profile",
-            description: "Gets players stats",
+            description: "Gets players stats.",
             args: [
                 {
                     key: "username",
@@ -94,7 +94,7 @@ module.exports = class profile extends Command {
             } else {
 
                 console.error("Unable to send message.");
-                console.error(response);
+                //console.error(response);
                 console.error(error);
 
             }

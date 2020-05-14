@@ -124,16 +124,13 @@ module.exports = class topscores extends Command {
                                 statisticsString = statisticsString.replace("Drank",Drank);
                                 statisticsString = statisticsString.replace("Frank",Frank);
 
-                                embed.addField(`#${i+1}`, statisticsString.trim());
+                            embed.addField(`#${i+1}`, statisticsString.trim());
 
                         }
 
-                        //embed.setTitle("Global Rank: #" + keymodeObject.globalRank);
                         embed.setTitle(`${emojiFlags.countryCode(body.user.info.country).emoji}  ${name}'s top scores (${keymodeString})`);
                         embed.setURL(`https://quavergame.com/profile/${body.user.info.id}?mode=${keysmode}`);
-                        //embed.setDescription(`${emojiFlags.countryCode(body.user.info.country).emoji} Country Rank: #` + keymodeObject.countryRank);
                         embed.setTimestamp()
-                        //embed.setThumbnail(`https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`)
                         embed.setFooter("https://quavergame.com")
 
                         if (body.user.info.avatar_url != "undefined")
@@ -168,6 +165,7 @@ module.exports = class topscores extends Command {
                         embed.setFooter("https://quavergame.com")
 
                         message.channel.send(embed)
+                        
                     } else {
 
                         console.error("Unable to send message.");
