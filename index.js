@@ -22,13 +22,13 @@ client.registry
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    client.user.setPresence({
+    bot.user.setStatus('dnd')
+    bot.user.setPresence({
         game: {
             name: 'Quaver',
-            type: 'WATCHING'
-        },
-        status: 'idle'
-    })
+            type: 0
+        }
+    });
 });
 
 client.on('error', console.error);
