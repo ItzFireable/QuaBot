@@ -22,7 +22,7 @@ client.registry
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    bot.user.setPresence({
+    client.user.setPresence({
         game: {
             name: 'Quaver'
         }
