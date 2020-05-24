@@ -2,11 +2,11 @@ const { ShardingManager } = require('discord.js');
 
 const manager = new ShardingManager("./shard.js",
     { 
-        token: 'NzA5NDM3MDUyNzQzMDU3NDE4.Xr-7ZA.W9EUAAC8O01-9WGClSqZODZ0Rpg',
-	    totalShards: 'auto',
-	    respawn: false,
+        token: 'process.env.BOT_TOKEN',
+	totalShards: 'auto',
+	respawn: false,
         shardArgs: process.argv.slice(2) 
-    }
+    }	
 );
 
 manager.on("launch", shard => {
