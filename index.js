@@ -1,34 +1,22 @@
-const Discord = require('discord.js');
-const { CommandoClient } = require('discord.js-commando');
-const request = require('request');
-const path = require('path');
+const { ShardingManager } = require('discord.js');
 
-const client = new CommandoClient({
-    commandPrefix: ';',
-    owner: '329152844261490689',
-    unknownCommandResponse: false,
+const manager = new ShardingManager("./shard.js",
+    { 
+        token: 'NzA5NDM3MDUyNzQzMDU3NDE4.Xr-7ZA.W9EUAAC8O01-9WGClSqZODZ0Rpg',
+	    totalShards: 'auto',
+	    respawn: false,
+        shardArgs: process.argv.slice(2) 
+    }
+);
+
+manager.on("launch", shard => {
+	const shard_id = shard.id;
+	console.log("Launched shard " + shard.id);
+	shard.on("death", () => {
+		setTimeout(() => {
+			manager.createShard(shard_id);
+		}, 5000);
+	});
 });
 
-client.registry
-    //.registerDefaults()
-    .registerDefaultTypes()
-    .registerDefaultGroups()
-    .registerDefaultCommands()
-    .registerGroups([
-        ['stats', 'Quaver Stats'],
-        ['faq', 'Quaver FAQ']
-    ])
-    .registerCommandsIn(path.join(__dirname, 'commands'));
-
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    client.user.setPresence({
-        game: {
-            name: 'Quaver'
-        }
-    });
-});
-
-client.on('error', console.error);
-
-client.login(process.env.BOT_TOKEN);
+manager.spawn(undefined, 10000);
