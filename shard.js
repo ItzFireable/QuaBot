@@ -41,7 +41,7 @@ function millisToMinutesAndSeconds(millis) {
 
 client.on('message', (message) => {
 
-    if (message.content.includes('https://quavergame.com/mapsets/map/')) {
+    if (message.content.includes('https://quavergame.com/mapset/map/')) {
 
         let link = linkify.find(message.content);
         let id = link[0].value.match(/\d+/)[0];
@@ -69,7 +69,7 @@ client.on('message', (message) => {
                 embed.setTitle(`**${body.map.title}**`)
                 embed.setAuthor(status)
                 embed.setDescription(`by ${body.map.creator_username}`)
-                embed.setURL(`https://quavergame.com/mapsets/map/${body.map.id}`)
+                embed.setURL(`https://quavergame.com/mapset/map/${body.map.id}`)
                 embed.addField("Difficulty", "Insert generic placeholder here!")
                 embed.setTimestamp()
                 embed.setImage(`https://quaver.blob.core.windows.net/banners/${body.map.mapset_id}_banner.jpg`)
@@ -95,7 +95,7 @@ client.on('message', (message) => {
 
             }
         })
-    } else if (message.content.includes('https://quavergame.com/mapsets/')) {
+    } else if (message.content.includes('https://quavergame.com/mapset/')) {
 
         let link = linkify.find(message.content);
         let id = link[0].value.match(/\d+/)[0];
@@ -154,7 +154,7 @@ client.on('message', (message) => {
 
                 embed.setColor(0x00B0F4)
                 embed.setTitle(`**${body.mapset.artist} - ${body.mapset.title}**`)
-                embed.setURL(`https://quavergame.com/mapsets/map/${body.mapset.maps[0].id}`)
+                embed.setURL(`https://quavergame.com/mapset/map/${body.mapset.maps[0].id}`)
                 embed.setTimestamp()
                 embed.setImage(`https://quaver.blob.core.windows.net/banners/${body.mapset.id}_banner.jpg`)
                 embed.setFooter("https://quavergame.com")
