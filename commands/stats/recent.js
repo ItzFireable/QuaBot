@@ -22,7 +22,7 @@ module.exports = class recent extends Command {
                     key: "recentnum",
                     prompt: "Which recent score?",
                     type: "integer",
-                    max: 10,
+                    max: 100,
                     default: 1,
                 },
                 {
