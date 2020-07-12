@@ -201,4 +201,4 @@ client.on('message', (message) => {
 
 client.on('error', console.error);
 
-client.login("NzEwNDU3MzIyMDg1ODEwMjU2.XwtEFA.mR6rQcE3NuIoqRZ8KKc4hu_hsr0");
+client.login(process.env.BOT_TOKEN);
