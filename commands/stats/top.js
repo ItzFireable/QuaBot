@@ -1,5 +1,5 @@
 const { Command } = require("discord.js-commando");
-const { RichEmbed,MessageAttachment } = require("discord.js");
+const { RichEmbed, MessageAttachment } = require("discord.js");
 const emojiFlags = require('emoji-flags');
 const request = require("request");
 const moment = require('moment');
@@ -37,7 +37,7 @@ module.exports = class topscores extends Command {
         request.get(url, { json: true }, (error, response, body) => {
 
             if (!error && body.status == 200) {
-                
+
                 let embed = new RichEmbed()
                 embed.setColor(0x00B0F4)
 
@@ -95,7 +95,7 @@ module.exports = class topscores extends Command {
                         let Drank = "<:graded:710045488547889202>";
                         let Frank = "<:gradef:710045497288687696>";
 
-                        for(let i = 0; i < body1.scores.length; i++) {
+                        for (let i = 0; i < body1.scores.length; i++) {
 
                             if (body1.scores[i].mods_string == "") {
                                 body1.scores[i].mods_string == "Nomod"
@@ -115,16 +115,16 @@ module.exports = class topscores extends Command {
                             let statisticsString = "";
                             for (const key in stats)
                                 statisticsString += `${key} ${stats[key].toLocaleString()}\n`;
-                                statisticsString = statisticsString.replace("Xrank",Xrank);
-                                statisticsString = statisticsString.replace("SSrank",SSrank);
-                                statisticsString = statisticsString.replace("Srank",Srank);
-                                statisticsString = statisticsString.replace("Arank",Arank);
-                                statisticsString = statisticsString.replace("Brank",Brank);
-                                statisticsString = statisticsString.replace("Crank",Crank);
-                                statisticsString = statisticsString.replace("Drank",Drank);
-                                statisticsString = statisticsString.replace("Frank",Frank);
+                            statisticsString = statisticsString.replace("Xrank", Xrank);
+                            statisticsString = statisticsString.replace("SSrank", SSrank);
+                            statisticsString = statisticsString.replace("Srank", Srank);
+                            statisticsString = statisticsString.replace("Arank", Arank);
+                            statisticsString = statisticsString.replace("Brank", Brank);
+                            statisticsString = statisticsString.replace("Crank", Crank);
+                            statisticsString = statisticsString.replace("Drank", Drank);
+                            statisticsString = statisticsString.replace("Frank", Frank);
 
-                            embed.addField(`#${i+1}`, statisticsString.trim());
+                            embed.addField(`#${i + 1}`, statisticsString.trim());
 
                         }
 
@@ -165,7 +165,7 @@ module.exports = class topscores extends Command {
                         embed.setFooter("https://quavergame.com")
 
                         message.channel.send(embed)
-                        
+
                     } else {
 
                         console.error("Unable to send message.");
