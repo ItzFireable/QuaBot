@@ -1,29 +1,24 @@
 const { Command } = require("discord.js-commando");
 const { RichEmbed, MessageAttachment } = require("discord.js");
-const profiles = require("./../../data/profiles.json");
 const request = require("request");
 const moment = require('moment');
 const fs = require('fs');
+const path = require('path');
 
-module.exports = class recent extends Command {
+
+module.exports = class recent2 extends Command {
     constructor(client) {
         super(client, {
-            name: "recent",
+            name: "recent2",
             group: "stats",
-            memberName: "recent",
+            memberName: "recent2",
             description: "Gets players most recent score.",
             args: [
                 {
-                    key: "username",
+                    key: "name",
                     prompt: "What is players username?",
                     type: "string",
                     default: ""
-                },
-                {
-                    key: "keymode",
-                    prompt: "What is this other useless thing?",
-                    type: "string",
-                    default: "--4k",
                 },
                 {
                     key: "recentnum",
@@ -32,26 +27,50 @@ module.exports = class recent extends Command {
                     max: 50,
                     default: 1,
                 },
+                {
+                    key: "keymode",
+                    prompt: "What is this other useless thing?",
+                    type: "string",
+                    default: "",
+                },
             ]
         });
     }
-    run(message, { username, keymode, recentnum }) {
-        
-        let profileslist = fs.readFileSync(profiles)
+    run(message, { name, keymode, recentnum }) {
 
-        for (let i = 0; i < profileslist.profiles.length; i++) {
-            console.log(profileslist.profiles[i].id)
+        let profiles = ""
+        let username = name
+        let keysmode = keymode == "--7k" ? 2 : 1;
+
+        try {
+            const jsonString = fs.readFileSync(path.join(__dirname, "/../../data/profiles.json"))
+            profiles = JSON.parse(jsonString)
+            if (username == "") {
+                for (let i = 0; i < profiles['profiles'].length; i++) {
+                    if (profiles['profiles'][i].id == message.author.id) {
+                        username = profiles['profiles'][i].username
+                        if (keymode == "") {
+                            keysmode = Number(profiles['profiles'][i].keymode)
+                        }
+                        // console.log(`Username: ${profiles['profiles'][i].username}, id: ${profiles['profiles'][i].userid}`)
+                    }
+                }
+            }
+        } catch (err) {
+            console.log(err)
+            return
         }
 
-        let keysmode = keymode == "--7k" ? 2 : 1;
-        let name = username.replace(/%20/g, " ");
-        let url = "https://api.quavergame.com/v1/users/full/" + name;
+        if (username == "") {
+            return message.channel.send("No username specified!")
+        }
+
+        let url = "https://api.quavergame.com/v1/users/full/" + username;
 
         request.get(url, { json: true }, (error, response, body) => {
 
             if (!error && body.status == 200) {
 
-                let name = username.replace(/%20/g, " ").replace(/_/g, " ");
                 let keymodeObject = null;
                 let keymodeString = "";
 
@@ -66,42 +85,20 @@ module.exports = class recent extends Command {
                     default:
                         break;
                 }
-                
+
                 let embed = new RichEmbed()
 
                 embed.setColor(0x00B0F4)
-                embed.setAuthor(`Recent score for ${name} (${keymodeString})`)
+                embed.setAuthor(`Recent score for ${username} (${keymodeString})`)
 
                 let id = body.user.info.id;
                 let latest = "https://api.quavergame.com/v1/users/scores/recent?id=" + id + "&mode=" + keysmode + "&limit=" + recentnum;
-                let num = recentnum - 1 
-
+                let num = recentnum - 1
                 request.get(latest, { json: true }, (error1, response1, body1) => {
 
                     if (!error1 && body1.status == 200 && body1.scores[num] != undefined) {
 
                         let mapsetID = body1.scores[num].map.mapset_id;
-
-                        //let attachment = new MessageAttachment("../../cache/banners/",`${mapsetID}.jpg`);
-
-                        //if (fs.existsSync(`../../cache/banners/${mapsetID}.jpg`)) {
-
-                        //    let image = `../../cache/banners/${mapsetID}.jpg`;
-                        //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
-
-                        //} else {
-
-                        //    let bannerURL = `https://quaver.blob.core.windows.net/banners/${mapsetID}_banner.jpg`;
-                        //    Jimp.read(bannerURL, (err, image) => {
-                        //        if (err) throw err;
-                        //        image
-                        //            .crop(0,0,450,250)
-                        //            .write(`../../cache/banners/${mapsetID}.jpg`);
-                        //    });
-
-                        //    let image = `../../cache/banners/${mapsetID}.jpg`;
-                        //    embed.setThumbnail(`attachment://${mapsetID}.jpg`)
-                        //}
 
                         let date = new Date(body1.scores[num].time);
                         let since = moment(date).fromNow()
@@ -114,26 +111,26 @@ module.exports = class recent extends Command {
                         let Crank = "<:gradec:710045478271844352>";
                         let Drank = "<:graded:710045488547889202>";
                         let Frank = "<:gradef:710045497288687696>";
-                        
+
                         let stats = {
                             "**Score ▸ **": `${body1.scores[num].grade + "rank"} **${Math.round(body1.scores[num].accuracy * 100) / 100}**% | **${Math.round(body1.scores[num].performance_rating * 100) / 100}** qr`,
                             "**Info ▸ **": `${body1.scores[num].total_score} - x${body1.scores[num].max_combo} - [${body1.scores[num].count_marv}/${body1.scores[num].count_perf}/${body1.scores[num].count_great}/${body1.scores[num].count_good}/${body1.scores[num].count_okay}/${body1.scores[num].count_miss}]`,
                             "**Mods ▸ **": `**${body1.scores[num].mods_string}**`,
                             "**Set ▸ **": since
                         };
-        
+
                         let statisticsString = "";
                         for (const key in stats)
                             statisticsString += `${key} ${stats[key].toLocaleString()}\n`;
-                            statisticsString = statisticsString.replace("Xrank",Xrank);
-                            statisticsString = statisticsString.replace("SSrank",SSrank);
-                            statisticsString = statisticsString.replace("Srank",Srank);
-                            statisticsString = statisticsString.replace("Arank",Arank);
-                            statisticsString = statisticsString.replace("Brank",Brank);
-                            statisticsString = statisticsString.replace("Crank",Crank);
-                            statisticsString = statisticsString.replace("Drank",Drank);
-                            statisticsString = statisticsString.replace("Frank",Frank);
-        
+                        statisticsString = statisticsString.replace("Xrank", Xrank);
+                        statisticsString = statisticsString.replace("SSrank", SSrank);
+                        statisticsString = statisticsString.replace("Srank", Srank);
+                        statisticsString = statisticsString.replace("Arank", Arank);
+                        statisticsString = statisticsString.replace("Brank", Brank);
+                        statisticsString = statisticsString.replace("Crank", Crank);
+                        statisticsString = statisticsString.replace("Drank", Drank);
+                        statisticsString = statisticsString.replace("Frank", Frank);
+
                         embed.addField("Statistics", statisticsString.trim());
                         embed.setTitle(`**${body1.scores[num].map.title} (${body1.scores[num].map.difficulty_name})**`)
                         embed.setURL(`https://quavergame.com/mapset/map/${body1.scores[num].map.id}`)
@@ -144,7 +141,7 @@ module.exports = class recent extends Command {
                         message.channel.send(embed)
 
                     } else if (!error1 && body1.status == 200 && body1.scores[num] == undefined) {
-                        
+
                         let embed = new RichEmbed()
                         embed.setColor(0x00B0F4)
                         embed.setAuthor(`${name}'s most recent score (${keymodeString})`)
@@ -196,6 +193,5 @@ module.exports = class recent extends Command {
 
             }
         })
-
     }
 }
