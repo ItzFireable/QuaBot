@@ -1,7 +1,7 @@
 const { ShardingManager } = require('discord.js');
 const data = require('./data/bot.json');
 
-const manager = new ShardingManager("./shard.js",
+const manager = new ShardingManager("./quabot/shard.js",
 	{
 		token: data.token,
 		totalShards: 'auto',
