@@ -6,12 +6,12 @@ const fs = require('fs');
 const path = require('path');
 
 
-module.exports = class recent2 extends Command {
+module.exports = class recent extends Command {
     constructor(client) {
         super(client, {
-            name: "recent2",
+            name: "recent",
             group: "stats",
-            memberName: "recent2",
+            memberName: "recent",
             description: "Gets players most recent score.",
             args: [
                 {
