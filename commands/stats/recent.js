@@ -20,17 +20,17 @@ module.exports = class recent extends Command {
                     default: ""
                 },
                 {
+                    key: "keymode",
+                    prompt: "What is this other useless thing?",
+                    type: "string",
+                    default: "--4k",
+                },
+                {
                     key: "recentnum",
                     prompt: "Which recent score?",
                     type: "integer",
                     max: 50,
                     default: 1,
-                },
-                {
-                    key: "keymode",
-                    prompt: "What is this other useless thing?",
-                    type: "string",
-                    default: "--4k",
                 },
             ]
         });
