@@ -1,8 +1,9 @@
 const { ShardingManager } = require('discord.js');
+const data = require('./data/bot.json');
 
 const manager = new ShardingManager("./shard.js",
 	{
-		token: process.env.BOT_TOKEN,
+		token: data.token,
 		totalShards: 'auto',
 		respawn: false,
 		shardArgs: process.argv.slice(2)

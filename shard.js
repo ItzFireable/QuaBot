@@ -3,6 +3,7 @@ const { CommandoClient } = require('discord.js-commando');
 const request = require('request');
 const path = require('path');
 const linkify = require('linkifyjs');
+const data = require('./data/bot.json');
 
 const client = new CommandoClient({
     commandPrefix: ';',
@@ -201,4 +202,4 @@ client.on('message', (message) => {
 
 client.on('error', console.error);
 
-client.login(process.env.BOT_TOKEN);
+client.login(data.token);

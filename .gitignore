@@ -1,4 +1,5 @@
 # Logs
+data/
 cache/
 logs
 *.log
